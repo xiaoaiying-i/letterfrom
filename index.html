@@ -209,9 +209,17 @@ div::-webkit-scrollbar {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
-	    <a id="a3" style='display: block; text-align: center'>letter3_有空回来看看</a>
-		<a id="a2" style='display: block; text-align: center'>letter2_说点啥</a>
-		<a id="a1" style='display: block; text-align: center'>letter1_您好</a>
+	    <a id="letter4" style='display: block; text-align: center'>letter4_偷看你的背影
+		<a id="letter4_all" style='display: block; text-align: center'>  查看全文</a></a>
+		
+	    <a id="letter3" style='display: block; text-align: center'>letter3_有空回来看看
+		<a id="letter3_all" style='display: block; text-align: center'>  查看全文</a></a>
+		
+		<a id="letter2" style='display: block; text-align: center'>letter2_说点啥
+		<a id="letter2_all" style='display: block; text-align: center'>  查看全文</a></a>
+		
+		<a id="letter1" style='display: block; text-align: center'>letter1_您好
+		<a id="letter1_all" style='display: block; text-align: center'>  查看全文</a></a>
 	    
 		
 		<!--<div id="code">
@@ -253,36 +261,97 @@ div::-webkit-scrollbar {
 
 $(function(){
     $('body').addClass('reveal');
-    hello();
-	<!--第1封信-->
-	$("#a1").click(function(){
+    //hello();
+	
+	function senMsg(letter){
+		var arr = letter.split('\n\n');
+		var ttfocus = $('.textarea').focus();
+		let newArr = arr.forEach(function(item,index,arr){
+		    ttfocus.typetype(item + "\n\n")
+			console.log(item)
+		})
+	}
+	
+	<!--第4封信-->
+	var letter4='曾在黑暗的生活中摸索前进，\
+	\n\n遇见你就像生命照进了光。\
+	\n\n“让我偷偷看你，在你回眸的微风里，让我偷偷看你，在你离去的背影里。”\
+	\n\n--赵雷~让我偷偷看你';
+	$("#letter4").click(function(){
+		$('.textarea').val("");
+		senMsg(letter4);
+	})
+	$("#letter4_all").click(function(){
 	    $('.textarea').val("");
-		hello();
+		$('.textarea').val(letter4 + "\n\n----end----\n\n\n\n");
+	})
+	
+	<!--第1封信-->
+	var letter1='您好，我是符金辉，您唱歌好好听欸......\
+	\n\n冒昧打搅了，烦请原谅！\
+	\n\n谢谢你的帮忙，\
+	\n\n很高兴认识你！cy。';
+	senMsg(letter1)
+	$("#letter1").click(function(){
+	    /*$('.textarea').val("");
+		hello();*/
+		$('.textarea').val("");
+		senMsg(letter1);
+	})
+	$("#letter1_all").click(function(){
+	    $('.textarea').val("");
+		$('.textarea').val(letter1 + "\n\n----end----\n\n\n\n");
 	})
 	
 	<!--第2封信-->
-	$("#a2").click(function(){
-		$('.textarea').val("");
+	var letter2='见到你很开心，\
+	\n\n想跟你说说话的，可是由于不善言辞，不太清楚说点啥...\
+	\n\n只能用这种方式给您留信了，\
+	\n\n希望你可以看到。\
+	\n\n顺祝：每天过得开心。';
+	$("#letter2").click(function(){
+		/*$('.textarea').val("");
 		$('.textarea').focus()
 		.typetype("见到你很开心，")
 		.typetype("\n\n想跟你说说话的，可是由于不善言辞，不太清楚说点啥...")
 		.typetype("\n\n只能用这种方式给您留信了，")
 		.typetype("\n\n希望你可以看到。")
-		.typetype("\n\n顺祝：每天过得开心。")
+		.typetype("\n\n顺祝：每天过得开心。")*/
+		$('.textarea').val("");
+		senMsg(letter2);
+	})
+	$("#letter2_all").click(function(){
+		$('.textarea').val("");
+		$('.textarea').val(letter2 + "\n\n----end----\n\n\n\n");
 	})
 	
 	<!--第3封信-->
-	$("#a3").click(function(){
-		$('.textarea').val("");
-		$('.textarea').focus()
+	var letter3 = '今日天气：晴，气温25℃。宜多喝水，忌生气烦闷。\
+	\n\n当你在某一个瞬间想起这个地方，\
+	\n\n或许可以再回来看看，\
+	\n\n看看是不是又给你留信了，\
+	\n\n说了点啥，猜测一下，期待一下。\
+	\n\n期待对生活来说是一种挺奇妙的感觉。\
+	\n\n顺祝：生活愉快，充满活力。';
+	$("#letter3").click(function(){
+		<!--$('.textarea').val("");
+		/*$('.textarea').focus()
 		.typetype("今日天气：晴，气温25℃。宜多喝水，忌生气烦闷。")
 		.typetype("\n\n当你在某一个瞬间想起这个地方，")
 		.typetype("\n\n或许可以再回来看看，")
 		.typetype("\n\n看看是不是又给你留信了，")
 		.typetype("\n\n说了点啥，猜测一下，期待一下。")
 		.typetype("\n\n期待对生活来说是一种挺奇妙的感觉。")
-		.typetype("\n\n顺祝：生活愉快，充满活力。")
+		.typetype("\n\n顺祝：生活愉快，充满活力。")*/
+		
+		$('.textarea').val("");
+		senMsg(letter3);
 	})
+	$("#letter3_all").click(function(){
+		$('.textarea').val("");
+		$('.textarea').val(letter3 + "\n\n----end----\n\n\n\n");
+	})
+
 
   //hljs.configure({languages:['js']})
   //hljs.highlightBlock($('#code')[0])
