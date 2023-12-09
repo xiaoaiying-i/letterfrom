@@ -209,8 +209,9 @@ div::-webkit-scrollbar {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
-	    <a id="a1" style='display: block; text-align: center'>letter1_您好</a>
-	    <a id="a2" style='display: block; text-align: center'>letter2_说点啥</a>
+	    <a id="a3" style='display: block; text-align: center'>letter3_有空回来看看</a>
+		<a id="a2" style='display: block; text-align: center'>letter2_说点啥</a>
+		<a id="a1" style='display: block; text-align: center'>letter1_您好</a>
 	    
 		
 		<!--<div id="code">
@@ -253,13 +254,13 @@ div::-webkit-scrollbar {
 $(function(){
     $('body').addClass('reveal');
     hello();
-	<!--第一封信-->
+	<!--第1封信-->
 	$("#a1").click(function(){
 	    $('.textarea').val("");
 		hello();
 	})
 	
-	<!--第二封信-->
+	<!--第2封信-->
 	$("#a2").click(function(){
 		$('.textarea').val("");
 		$('.textarea').focus()
@@ -268,6 +269,19 @@ $(function(){
 		.typetype("\n\n只能用这种方式给您留信了，")
 		.typetype("\n\n希望你可以看到。")
 		.typetype("\n\n顺祝：每天过得开心。")
+	})
+	
+	<!--第3封信-->
+	$("#a3").click(function(){
+		$('.textarea').val("");
+		$('.textarea').focus()
+		.typetype("今日天气：晴，气温25℃。宜多喝水，忌生气烦闷。")
+		.typetype("\n\n当你在某一个瞬间想起这个地方，")
+		.typetype("\n\n或许可以再回来看看，")
+		.typetype("\n\n看看是不是又给你留信了，")
+		.typetype("\n\n说了点啥，猜测一下，期待一下。")
+		.typetype("\n\n期待对生活来说是一种挺奇妙的感觉。")
+		.typetype("\n\n顺祝：生活愉快，充满活力。")
 	})
 
   //hljs.configure({languages:['js']})
