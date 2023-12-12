@@ -209,6 +209,9 @@ div::-webkit-scrollbar {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
+	    <a id="letter5" style='display: block; text-align: center'>letter5_于你于我
+		<a id="letter5_all" style='display: block; text-align: center'>  查看全文</a></a>
+	
 	    <a id="letter4" style='display: block; text-align: center'>letter4_偷看你的背影
 		<a id="letter4_all" style='display: block; text-align: center'>  查看全文</a></a>
 		
@@ -268,9 +271,33 @@ $(function(){
 		var ttfocus = $('.textarea').focus();
 		let newArr = arr.forEach(function(item,index,arr){
 		    ttfocus.typetype(item + "\n\n")
-			console.log(item)
+			//console.log(item)
 		})
 	}
+	
+	function sendLetter(num, letter){
+		$("#letter" + num).click(function(){
+			$('.textarea').val("");
+			senMsg(letter);
+		})
+		$("#letter"+ num +"_all").click(function(){
+			$('.textarea').val("");
+			$('.textarea').val(letter + "\n\n----end----\n\n\n\n");
+		})
+	}
+	
+	
+	<!--第5封信-->
+	var letter5='常常一个人发呆，\
+	\n\n于自己，也总是活得太过于理想也过于悲观。\
+	\n\n只是十分清楚现实与理想的差距，\
+	\n\n以至于面对你，终究还是会感到自卑。\
+	\n\n不害怕自己一个人去面对生活的柴米油盐，\
+	\n\n害怕的是要你和我一起面对。\
+	\n\n无论如何，生活还是需要一点诗意，\
+	\n\n读书学习、运动锻炼、音乐电影，\
+	\n\n于我，于生活，也总是不可或缺。';
+	sendLetter(5, letter5);
 	
 	<!--第4封信-->
 	var letter4='曾在黑暗的生活中摸索前进，\
@@ -291,7 +318,6 @@ $(function(){
 	\n\n冒昧打搅了，烦请原谅！\
 	\n\n谢谢你的帮忙，\
 	\n\n很高兴认识你！cy。';
-	senMsg(letter1)
 	$("#letter1").click(function(){
 	    /*$('.textarea').val("");
 		hello();*/
@@ -391,6 +417,10 @@ $(function(){
     //})
     //.backspace(48)
     //.typetype("Try it out!")-->
+	
+	// 进入默认信件
+	senMsg(letter5)
+	
 })
 
 </script>
