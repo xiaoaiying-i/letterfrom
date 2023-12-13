@@ -209,6 +209,9 @@ div::-webkit-scrollbar {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
+		<a id="letter6" style='display: block; text-align: center'>letter6_思念就像微风
+		<a id="letter6_all" style='display: block; text-align: center'>  查看全文</a></a>
+	
 	    <a id="letter5" style='display: block; text-align: center'>letter5_于你于我
 		<a id="letter5_all" style='display: block; text-align: center'>  查看全文</a></a>
 	
@@ -286,6 +289,15 @@ $(function(){
 		})
 	}
 	
+	<!--第6封信-->
+	var letter6='见不到你，总是有种淡淡的失落，\
+	\n\n见到你，却又害怕靠近你。\
+	\n\n说喜欢吧，又觉得过于官方，\
+	\n\n只是会觉得和你待在一起就很开心，\
+	\n\n即便只是在梦里。\
+	\n\n希望你规律进餐，注意休息。\
+	\n\n顺祝：身体健康，生活愉快。';
+	sendLetter(6, letter6);
 	
 	<!--第5封信-->
 	var letter5='常常一个人发呆，\
@@ -419,7 +431,7 @@ $(function(){
     //.typetype("Try it out!")-->
 	
 	// 进入默认信件
-	senMsg(letter5)
+	senMsg(letter6)
 	
 })
 
