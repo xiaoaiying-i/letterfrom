@@ -209,6 +209,9 @@ div::-webkit-scrollbar {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
+	    <a id="letter7" style='display: block; text-align: center'>letter7_在想些啥
+		<a id="letter7_all" style='display: block; text-align: center'>  查看全文</a></a>
+	
 		<a id="letter6" style='display: block; text-align: center'>letter6_思念就像微风
 		<a id="letter6_all" style='display: block; text-align: center'>  查看全文</a></a>
 	
@@ -288,6 +291,23 @@ $(function(){
 			$('.textarea').val(letter + "\n\n----end----\n\n\n\n");
 		})
 	}
+	
+	<!--第7封信-->
+	var letter7='好像我们都不曾真正相识，\
+	\n\n没有沟通，没有交流。\
+	\n\n可还是会忍不住的想到你，\
+	\n\n想你在想些什么。\
+	\n\n也想见到你，因为这样就会感到开心，\
+	\n\n只是真正望着你，却读不懂你的内心，\
+	\n\n想要靠近你却怕打扰你，也怕吓到你，\
+	\n\n希望自己不会给你带来困扰。\
+	\n\n因为你，我想让自己变得更好，\
+	\n\n运动、读书，也只是想做这样一个纯粹的人，\
+	\n\n人生万事，我只顺其自然。\
+	\n\n无论如何，还是希望你过得开心，\
+	\n\n开心是人生一种美好的体现，\
+	\n\n开心的时光也总是让人留恋的时光。';
+	sendLetter(7, letter7);
 	
 	<!--第6封信-->
 	var letter6='见不到你，总是有种淡淡的失落，\
@@ -431,7 +451,7 @@ $(function(){
     //.typetype("Try it out!")-->
 	
 	// 进入默认信件
-	senMsg(letter6)
+	senMsg(letter7)
 	
 })
 
