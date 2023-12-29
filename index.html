@@ -209,26 +209,29 @@ div::-webkit-scrollbar {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
-	    <a id="letter7" style='display: block; text-align: center'>letter7_在想些啥
-		<a id="letter7_all" style='display: block; text-align: center'>  查看全文</a></a>
+	    <a id="letter8" style='display: block; text-align: center'>letter8_喜欢与想念
+		<a id="letter8_all" style='display: block; text-align: center'>查看全文</a></a>
+	    
+		<a id="letter7" style='display: block; text-align: center'>letter7_在想些啥
+		<a id="letter7_all" style='display: block; text-align: center'>查看全文</a></a>
 	
 		<a id="letter6" style='display: block; text-align: center'>letter6_思念就像微风
-		<a id="letter6_all" style='display: block; text-align: center'>  查看全文</a></a>
+		<a id="letter6_all" style='display: block; text-align: center'>查看全文</a></a>
 	
 	    <a id="letter5" style='display: block; text-align: center'>letter5_于你于我
-		<a id="letter5_all" style='display: block; text-align: center'>  查看全文</a></a>
+		<a id="letter5_all" style='display: block; text-align: center'>查看全文</a></a>
 	
 	    <a id="letter4" style='display: block; text-align: center'>letter4_偷看你的背影
-		<a id="letter4_all" style='display: block; text-align: center'>  查看全文</a></a>
+		<a id="letter4_all" style='display: block; text-align: center'>查看全文</a></a>
 		
 	    <a id="letter3" style='display: block; text-align: center'>letter3_有空回来看看
-		<a id="letter3_all" style='display: block; text-align: center'>  查看全文</a></a>
+		<a id="letter3_all" style='display: block; text-align: center'>查看全文</a></a>
 		
 		<a id="letter2" style='display: block; text-align: center'>letter2_说点啥
-		<a id="letter2_all" style='display: block; text-align: center'>  查看全文</a></a>
+		<a id="letter2_all" style='display: block; text-align: center'>查看全文</a></a>
 		
 		<a id="letter1" style='display: block; text-align: center'>letter1_您好
-		<a id="letter1_all" style='display: block; text-align: center'>  查看全文</a></a>
+		<a id="letter1_all" style='display: block; text-align: center'>查看全文</a></a>
 	    
 		
 		<!--<div id="code">
@@ -279,9 +282,13 @@ $(function(){
 		    ttfocus.typetype(item + "\n\n")
 			//console.log(item)
 		})
+		ttfocus.typetype("\n")
 	}
 	
-	function sendLetter(num, letter){
+	function sendLetter(num, letter, def){
+	    if (def) {
+	        senMsg(letter)
+		}
 		$("#letter" + num).click(function(){
 			$('.textarea').val("");
 			senMsg(letter);
@@ -291,6 +298,18 @@ $(function(){
 			$('.textarea').val(letter + "\n\n----end----\n\n\n\n");
 		})
 	}
+	
+	<!--第8封信-->
+	var letter8='喜欢，原来是这样一种感觉，\
+	\n\n会不自觉的想念你，\
+	\n\n会希望你过得开心，\
+	\n\n也会遗憾自己不够优秀。\
+	\n\n常想人生的意义是什么？幸福是什么？\
+	\n\n如果不能让所爱之人过得幸福开心，\
+	\n\n那么又何谈去说喜欢。\
+	\n\n把真诚与尊敬献给你，\
+	\n\n衷心的祝你度过愉快而又美好的一天。';
+	sendLetter(8, letter8, true);
 	
 	<!--第7封信-->
 	var letter7='好像我们都不曾真正相识，\
@@ -451,7 +470,7 @@ $(function(){
     //.typetype("Try it out!")-->
 	
 	// 进入默认信件
-	senMsg(letter7)
+	//senMsg(defLetter)
 	
 })
 
