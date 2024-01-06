@@ -17,17 +17,19 @@ div::-webkit-scrollbar {
 }
 
 #header {
-  position:absolute;
+  //position:absolute;
   width:100%;
-  top:50%;margin-top:-210px;
+  padding-top:30px;
+  //top:50%;
+  //margin-top:-210px;
   -webkit-transition:all 1s;
   transition:all 1s;
-  opacity:0;
+  //opacity:0;
 
 }
 
 #header {
-  margin-top:-270px;
+  //margin-top:-270px;
   opacity:0.3;
 }
 
@@ -47,13 +49,12 @@ div::-webkit-scrollbar {
 }
 
 #header a:hover {
-
   text-decoration:underline;
 
 }
 
 #header iframe {
-  position:absolute;
+  //position:absolute;
   top:0.3em;
   margin-lefT:0.5em;
 
@@ -63,7 +64,7 @@ div::-webkit-scrollbar {
 	position:absolute;
 	right:50%;
 	top:50%;
-	margin-top:-210px;
+	margin-top:-380px;
 	height:420px;
 	width:620px;
 	background:rgb(35,36,38);
@@ -96,7 +97,7 @@ div::-webkit-scrollbar {
   position:absolute;
   left:50%;
   top:50%;
-  margin-top:-210px;
+  margin-top:-380px;
   height:420px;
   width:320px;
   background:rgba(230,230,230,1);
@@ -191,11 +192,227 @@ div::-webkit-scrollbar {
 
 }
 
+/* -----addClass----- */
+#imgDiv {
+  //height:400px;
+  //width:920px;
+  //padding:10px;
+  //margin-top:450px;
+  //margin-left:500px;
+  //background:none !important;
+  //border: 1px solid black;
+  
+  display:block;
+  position:absolute;
+  left:50%;
+  top:55%;
+  //margin-top:-10px;
+  width:940px;
+  //white-space:pre;
+  -webkit-transition:all 1s;
+  -transition:all 1s;
+  font-size:80%;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  margin-left:-460px;
+  border: 1px solid black;
+}
+
+.img { 
+  height:200px;
+  width:130px;
+  //margin:10px;
+}
+
+/*#imgDiv:hover img{display:none;}*/
+
+
+/*
+.border {
+    height: 369px;
+    width: 290px;
+    background: transparent;
+    border-radius: 10px;
+    transition: border 1s;
+    position: relative;
+}
+ 
+.border:hover {
+    border: 1px solid #fff;
+}
+ 
+.card {
+    height: 379px;
+    width: 300px;
+    background: #808080;
+    border-radius: 10px;
+    transition: background 0.8s;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 70px 63px -60px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+ 
+.card0 {
+    background: url("../img/1.jpg") center center no-repeat;
+    background-size: 300px;
+}
+ 
+.card0:hover {
+    background: url("../img/1.jpg") left center no-repeat;
+    background-size: 600px;
+}
+ 
+.card0:hover h2 {
+    opacity: 1;
+}
+ 
+.card0:hover .fa {
+    opacity: 1;
+}
+ 
+.card1 {
+    background: url("../img/2.jpg") center center no-repeat;
+    background-size: 300px;
+}
+ 
+.card1:hover {
+    background: url("../img/2.jpg") left center no-repeat;
+    background-size: 600px;
+}
+ 
+.card1:hover h2 {
+    opacity: 1;
+}
+ 
+.card1:hover .fa {
+    opacity: 1;
+}
+ 
+.card2 {
+    background: url("../img/3.jpg") center center no-repeat;
+    background-size: 300px;
+}
+ 
+.card2:hover {
+    background: url("../img/3.jpg") left center no-repeat;
+    background-size: 600px;
+}
+ 
+.card2:hover h2 {
+    opacity: 1;
+}
+ 
+.card2:hover .fa {
+    opacity: 1;
+}
+ 
+h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #fff;
+    margin: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+ 
+.fa {
+    opacity: 0;
+    transition: opacity 1s;
+}
+ 
+.icons {
+    position: absolute;
+    fill: #fff;
+    color: #fff;
+    height: 130px;
+    top: 226px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+*/
+
+.listitemimage{
+	transition:all 0.5s;
+}
+.listitemimage:hover{
+	transform:scale(1.1);
+}
+
+
+.info_container{/*卡片总div样式*/
+	position:relative;
+	width:98%;
+	margin:0 auto;/*居中*/
+	padding-bottom:50px;
+	display:flex;/*弹性盒子布局*/
+	flex-wrap:wrap;/*可换行*/
+	justify-content:center;/*两端对齐*/
+}
+.info_card{/*信息小卡片样式*/
+	width: 250px;
+	height:200px;
+	margin:10px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	text-align: center;
+	position: relative;
+ }
+.info_text{
+	padding: 20px;
+}
+.zh,.fan, #zhimg {/*正反面统一样式*/
+	width:100%;
+	height:100%;
+	text-align: center;
+	transition: all 2s;
+	backface-visibility: hidden;
+	/*正反面居于相同位置*/
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.info_card img{
+	width:100%;
+	height:100%;
+}
+.fan {/*反面特有样式*/
+	background:url(../img/x3.jpg);
+	background-size:100% 100%;
+	padding-top:10px;
+	transform: rotateY(-180deg) rotateZ(-180deg);/* 背面先旋转负180度为不可见 */
+}
+.fan p{/*卡下简介p标签样式*/
+	display: block;
+	text-align:left;
+	font-size:15px;
+	margin:10px;
+	line-height:20px;
+	color:white;
+	text-align: justify;/*文本两端对齐*/
+	text-justify: inter-character;/*文本两端对齐，中文也起作用*/
+	word-break:normal;
+    white-space:pre-warp;
+    word-wrapL:break-word;
+}
+.info_card:hover .zh {/*鼠标移动到：正面以y和z轴旋转180度*/
+	transform: rotateY(180deg) rotateZ(180deg);
+}
+.info_card:hover .fan {
+	transform: rotateY(0) rotateZ(0);
+}
+
 </style>
 
 </head>
 
 <body > <!--class="reveal"-->
+
 	<div id="header">
 	  <a style='display: block; text-align: center' href='https://xiaoaiying-i.github.io/aiyblog/'>
 		  from by  @aiyingi (查看博客)
@@ -258,6 +475,73 @@ div::-webkit-scrollbar {
 		</div>-->
 	</div>
 
+	<div id="imgDiv">
+	  <!--<div class="container">
+        <div class="card card0">
+            <div class="border">
+                <h2>Al Pacino</h2>
+                <div class="icons">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card card1">
+            <div class="border">
+                <h2>Ben Stiller</h2>
+                <div class="icons">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+            </div>class="imgAllDiv"
+        </div>
+		<div >
+			<div>
+				<image class="img" style="float:left;" src="./img/1.jpg"></image>
+				<p style="float:right;"></p>
+			</div>
+			<div class="listitemimage">
+				<a href="contentDetailed.html">
+					<img src="./img/1.jpg" />
+					<h5>这是简要标题</h5>
+					<p>这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</p>
+				</a>
+			</div>
+			<div class="listitemimage">
+				<a href="contentDetailed.html">
+					<img src="./img/1.jpg" />
+					<h5>这是简要标题</h5>
+					<p>这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</p>
+				</a>
+			</div>
+			<div class="listitemimage">
+				<a href="contentDetailed.html">
+					<img src="./img/1.jpg" />
+					<h5>这是简要标题</h5>
+					<p>这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</p>
+				</a>
+			</div>
+		<div>-->
+		
+		<div class="info_container">
+			 <div class="info_card" style="height:250px; width:180px;"><!-- 一张卡片 -->
+				<div class="zh"><!-- 正面 -->
+					<img id="zhimg" src="./img/1.jpg"/>
+					<!--<div class="info_text">
+						<p></p>
+					</div>-->
+				</div>
+				<div class="fan">
+					<!--<h3>简介</h3>-->
+					<p>拍摄于24年元旦</p>
+				</div>
+			 </div>
+		<div>
+	</div>
 <script src="highlight.min.js"></script>
 <script src="https://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.typetype.js"></script>
