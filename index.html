@@ -426,6 +426,9 @@ h2 {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
+	    <a id="letter9" style='display: block; text-align: center'>letter9_祝你幸福
+		<a id="letter9_all" style='display: block; text-align: center'>查看全文</a></a>
+		
 	    <a id="letter8" style='display: block; text-align: center'>letter8_喜欢与想念
 		<a id="letter8_all" style='display: block; text-align: center'>查看全文</a></a>
 	    
@@ -540,6 +543,14 @@ h2 {
 					<p>拍摄于24年元旦</p>
 				</div>
 			 </div>
+			 <div class="info_card" style="height:280px; width:180px;">
+				<div class="zh">
+					<img id="zhimg" src="./img/pugonying.jpeg"/>
+				</div>
+				<div class="fan">
+					<p>不以物喜，不以己悲</p>
+				</div>
+			 </div>
 		<div>
 	</div>
 <script src="highlight.min.js"></script>
@@ -583,6 +594,12 @@ $(function(){
 		})
 	}
 	
+	<!--第9封信-->
+	var letter9='如果有一天见不到你了，\
+	\n\n那就祝你早安，午安，晚安，\
+	\n\n祝你幸福，开心，快乐。';
+	sendLetter(9, letter9, true);
+	
 	<!--第8封信-->
 	var letter8='喜欢，原来是这样一种感觉，\
 	\n\n会不自觉的想念你，\
@@ -593,7 +610,7 @@ $(function(){
 	\n\n那么又何谈去说喜欢。\
 	\n\n把真诚与尊敬献给你，\
 	\n\n衷心的祝你度过愉快而又美好的一天。';
-	sendLetter(8, letter8, true);
+	sendLetter(8, letter8, false);
 	
 	<!--第7封信-->
 	var letter7='好像我们都不曾真正相识，\
