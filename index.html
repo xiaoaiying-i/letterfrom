@@ -426,6 +426,10 @@ h2 {
 	</div>
 
 	<div id="rhs" style="overflow:auto"><!---->
+	
+	    <a id="letter10" style='display: block; text-align: center'>letter10_相遇即幸运
+		<a id="letter10_all" style='display: block; text-align: center'>查看全文</a></a>
+		
 	    <a id="letter9" style='display: block; text-align: center'>letter9_祝你幸福
 		<a id="letter9_all" style='display: block; text-align: center'>查看全文</a></a>
 		
@@ -551,6 +555,23 @@ h2 {
 					<p>不以物喜，不以己悲</p>
 				</div>
 			 </div>
+			 <div class="info_card" style="height:280px; width:180px;">
+				<div class="zh">
+					<img id="zhimg" src="./img/xiaoxrk.jpeg"/>
+				</div>
+				<div class="fan">
+					<p>无言的爱</p>
+				</div>
+			 </div>
+			 <div class="info_card" style="height:280px; width:180px;">
+				<div class="zh">
+					<img id="zhimg" src="./img/feiniao.jpeg"/>
+				</div>
+				<div class="fan">
+					<p>像飞鸟一般，自由翱翔</p>
+				</div>
+			 </div>
+			 
 		<div>
 	</div>
 <script src="highlight.min.js"></script>
@@ -594,11 +615,25 @@ $(function(){
 		})
 	}
 	
+	<!--第10封信-->
+	var letter10='生活，\
+	\n\n寂静的，落寞的，孤独的。\
+	\n\n遇未逢时即是遗憾，\
+	\n\n（一个人至少拥有一个梦想，有一个理由去坚强。\
+	\n\n心若没有栖息的地方，到哪里都是在流浪。--三毛） \
+	\n\n如果已有人在爱你，\
+	\n\n你亦心有所属，\
+	\n\n那么我将默默离去，\
+	\n\n不打扰即是祝福。\
+	\n\n顺祝安好，\
+	\n\n真诚的，热烈的。';
+	sendLetter(10, letter10, true);
+	
 	<!--第9封信-->
 	var letter9='如果有一天见不到你了，\
 	\n\n那就祝你早安，午安，晚安，\
 	\n\n祝你幸福，开心，快乐。';
-	sendLetter(9, letter9, true);
+	sendLetter(9, letter9, false);
 	
 	<!--第8封信-->
 	var letter8='喜欢，原来是这样一种感觉，\
