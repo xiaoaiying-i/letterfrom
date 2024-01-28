@@ -336,17 +336,18 @@ div::-webkit-scrollbar {
 	</div>
 
 	<div id="imgDiv">
-		<div class="info_container">
-			 <div class="info_card" style="height:280px; width:180px;"><!-- 一张卡片 -->
-				<div class="zh"><!-- 正面 -->
-					<img id="zhimg" src="./img/1.jpg"/>
+		<div id="m_pic" class="info_container">
+			
+			 <!--<div class="info_card" style="height:280px; width:180px;"><!-- 一张卡片 -->
+				<!--<div class="zh"><!-- 正面 -->
+					<!--<img id="zhimg" src="./img/1.jpg"/>
 					<!--<div class="info_text">
 						<p></p>
 					</div>-->
-				</div>
+				<!--</div>
 				<div class="fan">
 					<!--<h3>简介</h3>-->
-					<p>拍摄于24年元旦</p>
+					<!--<p>拍摄于24年元旦</p>
 				</div>
 			 </div>
 			 <div class="info_card" style="height:280px; width:180px;">
@@ -372,8 +373,7 @@ div::-webkit-scrollbar {
 				<div class="fan">
 					<p>像飞鸟一般，自由翱翔</p>
 				</div>
-			 </div>
-			 
+			 </div>-->
 		<div>
 	</div>
 <script src="highlight.min.js"></script>
@@ -581,15 +581,19 @@ $(function(){
 <script>
 	var	playlist = [
 		{title:"起风了",artist:"买辣椒也用券",mp3:"https://m.hifini.com/music/起风了（旧版）.m4a",cover:"http://p2.music.126.net/c0nzSObvxF_DftayAJjXsw==/109951162864860506.jpg?param=130y130",},
-		{title:"One Last Kiss",artist:"宇多田ヒカル",mp3:"https://www.hifini.com/get_music.php?key=HEOQfF1FrIc4fjk8nQWIDFuUbZCJUcqxPWabLbjQqehjwaPOA8kbj0QVaHhePMBrGg",cover:"https://p1.music.126.net/iBApSj7JHCeFdO0W52EpZw==/109951165770552597.jpg?param=130y130",},
-		{title:"冷雨夜",artist:"Beyond",mp3:"https://www.hifini.com/get_music.php?key=RB/EKAkXr9M4fjk8nQWIDFuUbZCJUcqxPWabLbjQqehjwaPOA8kbjUgQa39Z",cover:"https://p1.music.126.net/25Um9AXuyzx2CK7t_h2WTA==/53876069773286.jpg?param=130y130",},
-		{title:"习惯失恋",artist:"容祖儿",mp3:"https://www.hifini.com/get_music.php?key=Rx+WLAgV/tU4fjk8nQWIDEHVc4rOV4vtJDuaN6bMqehjwaPeWp0Xzg1dNRxedIs0X5g/oKJ/omLiog1QXQ",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000003l02MY0vw8vs.jpg",},
-		{title:"野孩子",artist:"杨千嬅",mp3:"https://www.hifini.com/get_music.php?key=EkPEL1wVp4E4fjk8nQWIDEHVc4rOV4vtJDuaN6bMqehjwaPeWp0S+DlxagxddbU4eLk/oKJ/omLjqA9QX+s",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001mImhQ4doM89.jpg",},
-		{title:"稀客",artist:"杨千嬅",mp3:"https://www.hifini.com/get_music.php?key=QxPHJFIVqdA4fjk8nQWIDFWOcZKDGtW2OHvWIbqS9fRiyPuYDpAVj0oRa3g",cover:"https://p2.music.126.net/8w4C39C2OY2fRANvkSXo9Q==/109951163270254519.jpg?param=130y130",},
+		{title:"安和桥",artist:"宋冬野",mp3:"https://ws.stream.qqmusic.qq.com/C400000ky4wc42VVij.m4a?guid=604421&vkey=F2E3B22050CCE33F9F972084FF280758EABC60E7C08C52FA93C67FD23699374F25FE0E9B00D4F0D57B8446042B9BB67B1DF02B5B3AE39FDF&uin=&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"One Last Kiss",artist:"宇多田ヒカル",mp3:"https://www.hifini.com/get_music.php?key=f5++JS4RfH8NBpvcv6Yxt/qHy2QbtFL2L1QzxzIMCu6SgEyx0AAKi1c39NfULoN17Q",cover:"https://p1.music.126.net/iBApSj7JHCeFdO0W52EpZw==/109951165770552597.jpg?param=130y130",},
+		{title:"冷雨夜",artist:"Beyond",mp3:"https://m704.music.126.net/20240129010922/c6c4cb4842e10e92fcb1708b3a8ee219/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32366012653/b2cd/56f0/54b5/3c777951e3aaea50db17978fc45ef6f4.mp3",cover:"https://p1.music.126.net/25Um9AXuyzx2CK7t_h2WTA==/53876069773286.jpg?param=130y130",},
+		{title:"习惯失恋",artist:"容祖儿",mp3:"https://ws.stream.qqmusic.qq.com/C400002XBhHG47vVl3.m4a?guid=8625359&vkey=8A457EFC430176F0633274E937C270752A05EEE3009D06FDE3F7232F9640111DA01265AD517BFB820F53F5337ADDCF77B4A2BADD329ABC8B&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000003l02MY0vw8vs.jpg",},
+		{title:"活着viva(女版)",artist:"应嘉俐",mp3:"https://ws.stream.qqmusic.qq.com/C400001ZZziU1JukJr.m4a?guid=7240328830&vkey=635D2E45059230C4D146B22DEA45554B0D9AA26153F7218B84ECBF2816306CF9F9C2903C791FDBEE605C70721501E101F229F4AF2ADFE758&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000khOzC0Qhtto.jpg",},
+		{title:"野孩子",artist:"杨千嬅",mp3:"https://ws.stream.qqmusic.qq.com/C400001kRgbd0oxexh.m4a?guid=163010&vkey=9EE615D6569B1A2898C48634A76F64DEFF78E6297AD9115874B81303AA23AF2287D81278594552CC55CCF125FC5CF9FF504E10AAFA289EB1&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001mImhQ4doM89.jpg",},
+		{title:"稀客",artist:"杨千嬅",mp3:"https://m701.music.126.net/20240129010239/fedd0cb2ff7c5b28db11e30f7082a819/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/28482108653/b0ed/be9d/f85f/1747119ecb82dd18e38256c8530e7542.mp3",cover:"https://p2.music.126.net/8w4C39C2OY2fRANvkSXo9Q==/109951163270254519.jpg?param=130y130",},
 		{title:"黑夜中漫舞",artist:"陈奕迅",mp3:"https://ws.stream.qqmusic.qq.com/C400002YgLHD4frRWS.m4a?guid=13943538&vkey=34F6A9C33A10D35AD83E4F134AB3EF3C5279CC10968D7EB5BFCB3FD70CF745F1146672BB9A47E3FAA5FB047D38ACD630C4F2EEF355F2D48E&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000004S8YQr3UmEbG.jpg",},
 		{title:"在路上",artist:"康小景",mp3:"./music/康小景在路上.ogg",cover:"https://y.qq.com/music/photo_new/T002R300x300M000002pzOKB0MXSDC_1.jpg?max_age=2592000",},
-	    {title:"南国之舞",artist:"梁翘柏",mp3:"https://www.hifini.com/get_music.php?key=FRCXJFMWqNc4fjk8nQWIDFWOcZKDGtW2OHvWIbqS9fRiyPuYDpAUhkgeanhbOA",cover:"https://p2.music.126.net/lHwwVluAutDy0FmpaslYiw==/5905476953005960.jpg?param=130y130",},
-	    {title:"弥敦道",artist:"洪卓立",mp3:"https://www.hifini.com/get_music.php?key=RkWQfl1EqoI4fjk8nQWIDEHVc4rOV4vtJDuaN6bMqehjwaPeWp0W8DRTEg9eYc0IWr0/oKJ/omLjrQJQUuA",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000aMFTq0Ejfqb.jpg",},
+	    {title:"董小姐",artist:"宋冬野",mp3:"https://ws.stream.qqmusic.qq.com/C4000045ydn329dklt.m4a?guid=481929934&vkey=88407C6D7A21348F95D78BE9B782DD515F3E3C63F265B9EA68AC662B40A8A62BE78728F721B7579120A785514F7959A5C4200AC196DC4103&uin=&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"南国之舞",artist:"梁翘柏",mp3:"https://m701.music.126.net/20240129011706/d60a17953b6fb165533f6d3d576f29cf/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32069029692/20f2/5e23/5a36/95c0f174d269f2dbd9981242c1501b0b.mp3",cover:"https://p2.music.126.net/lHwwVluAutDy0FmpaslYiw==/5905476953005960.jpg?param=130y130",},
+	    {title:"弥敦道",artist:"洪卓立",mp3:"https://ws.stream.qqmusic.qq.com/C400001XhsPz4Mu72j.m4a?guid=411834819&vkey=2F9FBC9A8756984CE3B002B42327F77D8146EE7FFC62C0ECDA94F64EBAF4088E9759F0AE0F4B0659D02E3541F82F2DA067B93E326A4BEF18&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000aMFTq0Ejfqb.jpg",},
+	    {title:"不必在乎我是谁(Live)",artist:"李宗盛",mp3:"https://ws.stream.qqmusic.qq.com/C400003hoIhU3pWQT8.m4a?guid=336427031&vkey=6A88C7711047BCCA5F4E480535641736D9638B8FD1003583F2A6E27A14696838D2F3EB01F6F9DBBE381D2B60EE59F93A9C348B64BEB4E776&uin=&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M0000028Pdb00tG9aA.jpg",},
 		
 	];
   var isRotate = true;
@@ -613,8 +617,8 @@ window.onload = bgChange;
 var	sxlist = [
 	{title:"随想_难以到达的地方",content:"生活啊！多么的丰富多彩，\n饱含了人间的酸甜苦辣咸。\n我所向往的生活，\n那是一片金黄的麦田，\n那是一片翠绿的草地，\n那是一片湛蓝的天空。\n\n我有一个小房子，\n他就在那棵大榕树下。\n我有一个种满了花儿的小院子，\n我还有一只猫、一匹马儿。\n当夜晚到来，\n我抱着我的小猫，\n坐在小屋门前、大榕树底下，\n看见了那满天闪烁的繁星。\n\n我做了一个梦，\n梦见我骑着我的马儿在空旷的草原上狂奔，\n最后，我们在一条小溪边停了下来。\n马儿喝着水，\n我吹着迎面而来的徐徐清风，\n无比的快乐着。\n\n有一天，我那小院子里的花儿开了，\n它们就像一张张小脸在向着我微笑，\n我也无比幸福的笑了。\n我们就是这世间最美好的事物，\n像太阳的光――热烈，\n像月亮的光――皎洁，\n像星星的光――璀璨。\n我想这世间万物都已藏进了我的眸间。",},
 	{title:"随想_孤独之旅",content:"当有一天我背上我的行囊，\n离开了那生我养我的土地，\n这并不是我不热爱那家乡，\n而是我要去把那离家出走的灵魂找回。\n当有一天你发现我对那生活不在有所向往，\n这只是我在自我疗伤。\n\n如果生命的尽头没有我所追求的希望，\n那我是否还可以回头观望？\n美好的希望，\n总在那暴风骤雨的彩虹之上，\n所有的展望也都只不过是令自己遍体鳞伤。\n但我清楚的知道，\n就是最后满是失望，\n我也会无怨无悔、无惧无畏的向着那前方。\n\n生活的历练为我锻造铠甲，\n命运的苦难助我积极向上，\n我已重寻那力量之源，\n让我的精神领着我走向远方。\n我的身影开始变得高大，\n我也慢慢变得沧桑。",},
-	{title:"随想_故事",content:"\n可惜我并不勇敢，\n不然你和我的故事早已写满了厚厚的一沓笔记。\n如果能再给我一个重新开始的机会，\n我又会怎么做？\n\n我只是做了一个长长的梦，\n我一直都没有醒过来。\n等我打破了这幻境，\n我将会带着你离开。\n如果你问我要往哪里去，\n我会告诉你：\n去往那鲜花盛开、最接近理想的地方。\n\n当我们踏上了岁月这一趟列车，\n青春的站点会匆匆驶过，\n在时间的这条路上一直漂泊，\n哪里才能停歇，哪里才是我们的故乡，哪里才会是我们的最终归宿？\n我想，这一切都已经不再重要。\n因为，有你的地方也就是我最快乐的地方。\n\n我们就像结伴而行的一对候鸟，\n在冬天到来之前飞往我们的南方。\n为什么会迷失了方向？\n只因这一路上的风景太过于美丽。\n就让黎明的曙光为我们指引方向，\n冲破那黑暗的束缚，\n向着那温暖的地方。",},
-	{title:"随想_在周日死去",content:"\n贱卖时间，\n生命，只剩下这一个周日，\n生活，寂静的，落寞的，孤独的。\n谁将在这个周日死去，\n谁会沉沉的睡去，便不再醒来。",},
+	{title:"随想_故事",content:"可惜我并不勇敢，\n不然你和我的故事早已写满了厚厚的一沓笔记。\n如果能再给我一个重新开始的机会，\n我又会怎么做？\n\n我只是做了一个长长的梦，\n我一直都没有醒过来。\n等我打破了这幻境，\n我将会带着你离开。\n如果你问我要往哪里去，\n我会告诉你：\n去往那鲜花盛开、最接近理想的地方。\n\n当我们踏上了岁月这一趟列车，\n青春的站点会匆匆驶过，\n在时间的这条路上一直漂泊，\n哪里才能停歇，哪里才是我们的故乡，哪里才会是我们的最终归宿？\n我想，这一切都已经不再重要。\n因为，有你的地方也就是我最快乐的地方。\n\n我们就像结伴而行的一对候鸟，\n在冬天到来之前飞往我们的南方。\n为什么会迷失了方向？\n只因这一路上的风景太过于美丽。\n就让黎明的曙光为我们指引方向，\n冲破那黑暗的束缚，\n向着那温暖的地方。",},
+	{title:"随想_在周日死去",content:"贱卖时间，\n生命，只剩下这一个周日，\n生活，寂静的，落寞的，孤独的。\n谁将在这个周日死去，\n谁会沉沉的睡去，便不再醒来。",},
 	{title:"随想_分离",content:"在这阴暗的房子里，\n老鼠和蟑螂啃食着我的躯壳，\n窗外的小鸟为我哀鸣，\n地上的蚂蚁为我祷告。\n脱离而出的灵魂注视这一切，\n无力的在空气中消散。",},
 	{title:"杂思_1",content:"如果生活欺骗了我，\n我会感到无比庆幸，\n因为我还有那一丝值得欺骗的价值。\n如果生活把我欺骗得一无所有，\n那我仍要感到开心，\n因为再无任何可失去，\n剩下的便是获得。",},
 	{title:"杨慎_临江仙",content:"滚滚长江东逝水，浪花淘尽英雄。\n是非成败转头空。\n青山依旧在，几度夕阳红。\n\n白发渔樵江渚上，惯看秋月春风。\n一壶浊酒喜相逢。\n古今多少事，都付笑谈中。",},
@@ -632,7 +636,7 @@ function catSxContent(itemIndex){
 	$('#sx-textarea').val(item.title + "\n\n" +item.content);
 }
 
-function sxload(){
+function sxLoad(){
 	$('#sx-textarea').val("");
 	var lastitem = sxlist[sxlist.length-1];
 	if (lastitem != null && lastitem != "undefined"){
@@ -651,11 +655,37 @@ function sxload(){
 	}
 }
 
-
-
-window.onload = sxload;
+window.onload = sxLoad;
 </script>
 
+
+<!--m_pic-->
+<script>
+function mPicLoad(){
+	var	mPicList = [
+		{title:"",src:"./img/1.jpg",content:"拍摄于24年元旦",},
+		{title:"",src:"./img/pugonying.jpeg",content:"不以物喜，不以己悲",},
+		{title:"",src:"./img/xiaoxrk.jpeg",content:"无言的爱",},
+		{title:"",src:"./img/feiniao.jpeg",content:"像飞鸟一般，自由翱翔",},
+		
+	];
+	for (var i = 0; i < mPicList.length; i++){
+		var item = mPicList[i];
+		$('#m_pic').append('<div class="info_card" style="height:280px; width:180px;"><div class="zh"><img id="zhimg" src="'+item.src+'"/></div><div class="fan"><p>'+item.content+'</p></div></div>');
+	}
+}
+
+</script>
+<!--m_pic-->
+
+<script>
+function Load(){
+	bgChange()
+	sxLoad();
+	mPicLoad();
+}
+window.onload = Load;
+</script>
 </body>
 </html>
 
