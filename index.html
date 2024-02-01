@@ -511,8 +511,20 @@ div::-webkit-scrollbar {
 	</div>
 	<!-- ----pics---- -->
 	
+	<!-- ----video---- -->
+	<div class="imgDiv" style="height:450px;background-color: rgb(35,36,38); top:1450px;">
+		<!--<video width="60%" height="100%" controls="controls">
+			<object data="movie.mp4">
+				<embed src="//player.bilibili.com/player.html?aid=318152822&bvid=BV1jP411a7g7&cid=1260539484&p=1" width="320" height="240" />
+			</object>
+		</video> -->
+		<iframe width="100%" height="100%"  src="https://player.bilibili.com/player.html?aid=318152822&bvid=BV1jP411a7g7&cid=1260539484&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="false">
+		</iframe>
+	</div>
+	<!-- ----video---- -->
+	
     <!-- ----my_pic---- -->
-	<div class="imgDiv" style="top:1450px;">
+	<div class="imgDiv" style="top:1900px;overflow:auto;margin-top:20px;">
 		<div id="m_pic" class="info_container">
 			
 			 <!--<div class="info_card" style="height:280px; width:180px;"><!-- 一张卡片 -->
@@ -554,7 +566,7 @@ div::-webkit-scrollbar {
 		</div>
 	</div>
 	<!-- ----my_pic---- -->
-	
+
 	
 <script src="highlight.min.js"></script>
 <script src="https://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
@@ -761,20 +773,22 @@ $(function(){
 <script>
 	var	playlist = [
 		{title:"起风了",artist:"买辣椒也用券",mp3:"https://m.hifini.com/music/起风了（旧版）.m4a",cover:"http://p2.music.126.net/c0nzSObvxF_DftayAJjXsw==/109951162864860506.jpg?param=130y130",},
-		{title:"安和桥",artist:"宋冬野",mp3:"https://ws.stream.qqmusic.qq.com/C400000ky4wc42VVij.m4a?guid=604421&vkey=F2E3B22050CCE33F9F972084FF280758EABC60E7C08C52FA93C67FD23699374F25FE0E9B00D4F0D57B8446042B9BB67B1DF02B5B3AE39FDF&uin=&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
-		{title:"One Last Kiss",artist:"宇多田ヒカル",mp3:"https://www.hifini.com/get_music.php?key=f5++JS4RfH8NBpvcv6Yxt/qHy2QbtFL2L1QzxzIMCu6SgEyx0AAKi1c39NfULoN17Q",cover:"https://p1.music.126.net/iBApSj7JHCeFdO0W52EpZw==/109951165770552597.jpg?param=130y130",},
-		{title:"冷雨夜",artist:"Beyond",mp3:"https://m704.music.126.net/20240129010922/c6c4cb4842e10e92fcb1708b3a8ee219/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32366012653/b2cd/56f0/54b5/3c777951e3aaea50db17978fc45ef6f4.mp3",cover:"https://p1.music.126.net/25Um9AXuyzx2CK7t_h2WTA==/53876069773286.jpg?param=130y130",},
-		{title:"习惯失恋",artist:"容祖儿",mp3:"https://ws.stream.qqmusic.qq.com/C400002XBhHG47vVl3.m4a?guid=8625359&vkey=8A457EFC430176F0633274E937C270752A05EEE3009D06FDE3F7232F9640111DA01265AD517BFB820F53F5337ADDCF77B4A2BADD329ABC8B&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000003l02MY0vw8vs.jpg",},
-		{title:"活着viva(女版)",artist:"应嘉俐",mp3:"https://ws.stream.qqmusic.qq.com/C400001ZZziU1JukJr.m4a?guid=7240328830&vkey=635D2E45059230C4D146B22DEA45554B0D9AA26153F7218B84ECBF2816306CF9F9C2903C791FDBEE605C70721501E101F229F4AF2ADFE758&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000khOzC0Qhtto.jpg",},
-		{title:"野孩子",artist:"杨千嬅",mp3:"https://ws.stream.qqmusic.qq.com/C400001kRgbd0oxexh.m4a?guid=163010&vkey=9EE615D6569B1A2898C48634A76F64DEFF78E6297AD9115874B81303AA23AF2287D81278594552CC55CCF125FC5CF9FF504E10AAFA289EB1&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001mImhQ4doM89.jpg",},
-		{title:"稀客",artist:"杨千嬅",mp3:"https://m701.music.126.net/20240129010239/fedd0cb2ff7c5b28db11e30f7082a819/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/28482108653/b0ed/be9d/f85f/1747119ecb82dd18e38256c8530e7542.mp3",cover:"https://p2.music.126.net/8w4C39C2OY2fRANvkSXo9Q==/109951163270254519.jpg?param=130y130",},
-		{title:"黑夜中漫舞",artist:"陈奕迅",mp3:"https://ws.stream.qqmusic.qq.com/C400002YgLHD4frRWS.m4a?guid=13943538&vkey=34F6A9C33A10D35AD83E4F134AB3EF3C5279CC10968D7EB5BFCB3FD70CF745F1146672BB9A47E3FAA5FB047D38ACD630C4F2EEF355F2D48E&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000004S8YQr3UmEbG.jpg",},
+		{title:"安和桥",artist:"宋冬野",mp3:"https://m804.music.126.net/20240202003548/03f2269be1b71a9d40c54666b013461c/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096566705/d810/fced/f2bb/b07241ed1fac0c1cf4f800b824bc798a.mp3?_authSecret=0000018d656fe69418ea0aaba3830fb6",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"One Last Kiss",artist:"宇多田ヒカル",mp3:"https://api.liumingye.cn/m/api/link?id=b3f634HzOLrfMF9SfoAs-ZADNQkUBlsjQyjUsKqMGja13S2z0Phw&quality=128&_t=1706803917479&token=20230327.a9ee6471926db1c1bece103826fa7e66",cover:"https://p1.music.126.net/iBApSj7JHCeFdO0W52EpZw==/109951165770552597.jpg?param=130y130",},
+		{title:"冷雨夜",artist:"Beyond",mp3:"https://m804.music.126.net/20240202003812/e120d1e010496d0b7f75222490b4f70d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32366012653/b2cd/56f0/54b5/3c777951e3aaea50db17978fc45ef6f4.mp3?_authSecret=0000018d6572178b1ede0aaba394f900",cover:"https://p1.music.126.net/25Um9AXuyzx2CK7t_h2WTA==/53876069773286.jpg?param=130y130",},
+		{title:"执迷不悟",artist:"王菲",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzI3NjYzODY0Nl8yMjQ3NDg1ODQ1",cover:"https://i.biliimg.com/bfs/im/60cfc166aacf16f16265a663ed4111ceb6568f3a.png@70w_70h_1c.webp",},
+		{title:"无赖",artist:"郑中基",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzI3NjYzODY0Nl8yMjQ3NDg1MTk1",cover:"	https://i.biliimg.com/bfs/im/3771fed2d84bbe5dee0c56d8fc6a3f11d16a757d.jpg@70w_70h_1c.webp",},
+		{title:"习惯失恋",artist:"容祖儿",mp3:"https://api.liumingye.cn/m/api/link?id=d3f636iePH3nJMVUD1wHpHjvjf7c36LlnQ4XyXprbckwMg36ZcvGm&quality=128&_t=1706803815472&token=20230327.8fe949477a743b482869270bd1706861",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000003l02MY0vw8vs.jpg",},
+		{title:"活着viva(女版)",artist:"应嘉俐",mp3:"https://api.liumingye.cn/m/api/link?id=b3f634HzOLrfMF9SfoFZoZlfJR0QElpyEyDZxLaUFi6xxTGH1NRI&quality=128&_t=1706804689847&token=20230327.3585105bc8ed3b66324d4dff44641211",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000khOzC0Qhtto.jpg",},
+		{title:"野孩子",artist:"杨千嬅",mp3:"https://api.liumingye.cn/m/api/link?id=d3f636iePH3nJMVUD1wfoQjKyeLJi7b1jT9byWszZe0MPgno&quality=128&_t=1706805025063&token=20230327.d1ef3757558850c4e89c0eaa08295f9b",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001mImhQ4doM89.jpg",},
+		{title:"稀客",artist:"杨千嬅",mp3:"https://api.liumingye.cn/m/api/link?id=m3f63OtUGNZoMDio1KvYG6T84ksjKcPksLXuh1VA7dWSL0qjZFeLha7Qr2x7Be5k&quality=128&_t=1706804993351&token=20230327.e35d85b015d7384cad9d094aea5a4b5a",cover:"https://p2.music.126.net/8w4C39C2OY2fRANvkSXo9Q==/109951163270254519.jpg?param=130y130",},
+		{title:"黑夜中漫舞",artist:"陈奕迅",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzIxMzExNDQwMl8xMDAwMDI2MjA=",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000004S8YQr3UmEbG.jpg",},
 		{title:"在路上",artist:"康小景",mp3:"./music/康小景在路上.ogg",cover:"https://y.qq.com/music/photo_new/T002R300x300M000002pzOKB0MXSDC_1.jpg?max_age=2592000",},
-	    {title:"董小姐",artist:"宋冬野",mp3:"https://ws.stream.qqmusic.qq.com/C4000045ydn329dklt.m4a?guid=481929934&vkey=88407C6D7A21348F95D78BE9B782DD515F3E3C63F265B9EA68AC662B40A8A62BE78728F721B7579120A785514F7959A5C4200AC196DC4103&uin=&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
-		{title:"南国之舞",artist:"梁翘柏",mp3:"https://m701.music.126.net/20240129011706/d60a17953b6fb165533f6d3d576f29cf/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32069029692/20f2/5e23/5a36/95c0f174d269f2dbd9981242c1501b0b.mp3",cover:"https://p2.music.126.net/lHwwVluAutDy0FmpaslYiw==/5905476953005960.jpg?param=130y130",},
-	    {title:"弥敦道",artist:"洪卓立",mp3:"https://ws.stream.qqmusic.qq.com/C400001XhsPz4Mu72j.m4a?guid=411834819&vkey=2F9FBC9A8756984CE3B002B42327F77D8146EE7FFC62C0ECDA94F64EBAF4088E9759F0AE0F4B0659D02E3541F82F2DA067B93E326A4BEF18&uin=626567678&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000aMFTq0Ejfqb.jpg",},
-	    {title:"不必在乎我是谁(Live)",artist:"李宗盛",mp3:"https://ws.stream.qqmusic.qq.com/C400003hoIhU3pWQT8.m4a?guid=336427031&vkey=6A88C7711047BCCA5F4E480535641736D9638B8FD1003583F2A6E27A14696838D2F3EB01F6F9DBBE381D2B60EE59F93A9C348B64BEB4E776&uin=&fromtag=103032",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M0000028Pdb00tG9aA.jpg",},
-		
+	    {title:"董小姐",artist:"宋冬野",mp3:"https://api.liumingye.cn/m/api/link?id=d3f636iePH3nJMVUD1wW8GTPhfbZh6ehpFdLyW8PYfUMPjH2Xeg&quality=128&_t=1706805136616&token=20230327.9239512a73966b406c21ea0b75400755",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"南国之舞",artist:"梁翘柏",mp3:"https://api.liumingye.cn/m/api/link?id=m3f63OtUGNZoMDio1Kv5Vvz84wZucIvx4fin12VE7dWSL0qjZFeLha7oq0RrPcZs&quality=128&_t=1706805184479&token=20230327.a45ea04c8336b0ecd6c06ebe81898a8c",cover:"https://p2.music.126.net/lHwwVluAutDy0FmpaslYiw==/5905476953005960.jpg?param=130y130",},
+	    {title:"弥敦道",artist:"洪卓立",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzI3NjYzODY0Nl8yMjQ3NDg4Mjkz",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000aMFTq0Ejfqb.jpg",},
+	    {title:"不必在乎我是谁",artist:"梁静茹",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzIxMzExNDQwMl8xMDAwMDg2MDE=",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M0000028Pdb00tG9aA.jpg",},
+	    
 	];
   var isRotate = true;
   var autoplay = false;
@@ -847,14 +861,26 @@ function mPicLoad(){
 		//{title:"",src:"./img/pugonying.jpeg",content:"不以物喜，不以己悲",},
 		//{title:"",src:"./img/xiaoxrk.jpeg",content:"无言的爱",},
 		//{title:"",src:"./img/feiniao.jpeg",content:"像飞鸟一般，自由翱翔",},
-		{title:"",src:"./img/pics/mingchaonaxieshi.jpg",content:"书：《明朝那些事》，作者：当年明月。\n临江仙·梦后楼台高锁 晏几道_宋\n梦后楼台高锁，酒醒帘幕低垂。去年春恨却来时。落花人独立，微雨燕双飞。\n记得小苹初见，两重心字罗衣。琵琶弦上说相思。当时明月在，曾照彩云归。",},
-		{title:"",src:"./img/pics/24shi.jpg",content:"书：《二十四史》。以铜为鉴,可以正衣冠,以人为鉴,可以知得失,以史为鉴,可以知兴替。",},
-		{title:"",src:"./img/pics/modaihuangdi.webp",content:"电影：<末代皇帝 The Last Emperor‎ (1987)>。导演: 贝纳尔多·贝托鲁奇；编剧: 贝纳尔多·贝托鲁奇 / 马克·派普罗。",},
-		{title:"",src:"./img/pics/ruikehemodi.webp",content:"动画：<瑞克和莫蒂 Rick and Morty>。导演: 贾斯汀·罗兰；编剧: 贾斯汀·罗兰 / 丹·哈萌。",},
+		{title:"",src:"./img/pics/mingchaonaxieshi.jpg",content:"书：《明朝那些事》；作者：当年明月。\n临江仙·梦后楼台高锁 晏几道_宋\n梦后楼台高锁，酒醒帘幕低垂。去年春恨却来时。落花人独立，微雨燕双飞。\n记得小苹初见，两重心字罗衣。琵琶弦上说相思。当时明月在，曾照彩云归。",},
+		{title:"",src:"./img/pics/24shi.jpg",content:"书：《二十四史》；以铜为鉴,可以正衣冠,以人为鉴,可以知得失,以史为鉴,可以知兴替。",},
+		{title:"",src:"./img/pics/modaihuangdi.webp",content:"电影：《末代皇帝 The Last Emperor‎ (1987)》；导演: 贝纳尔多·贝托鲁奇；编剧: 贝纳尔多·贝托鲁奇 / 马克·派普罗。",},
+		{title:"",src:"./img/pics/jibuli.webp",content:"吉卜力系列；吉卜力工作室；宫崎骏；千与千寻、天空之城、红猪、风之谷、幽灵公主、悬崖上的金鱼姬、哈尔的移动城堡、辉夜姬物语、魔女宅急便、猫的报恩......",},
+		{title:"",src:"./img/pics/houxiaoxian.webp",content:"侯孝贤；杨德昌系列；恋恋风尘、童年往事、悲情城市、东东的假期......",},
+		{title:"",src:"./img/pics/wangjiawei.webp",content:"王家卫系列；旺角卡门、阿飞正传、重庆森林、东邪西毒、春光乍泄、花样年华、堕落天使、2046......",},
+		{title:"",src:"./img/pics/xinshijifuyinzhanshi.webp",content:"动画：《新世纪福音战士 新世紀エヴァンゲリオン》；人类补完计划",},
+		{title:"",src:"./img/pics/jinjidejuren.webp",content:"动画：《进击的巨人進撃の巨人》；",},
+		{title:"",src:"./img/pics/conglingkaishideyishijiesshenghuo.webp",content:"动画：《Re：从零开始的异世界生活》；艾米莉亚-486",},
+		{title:"",src:"./img/pics/longzhu.webp",content:"动画：《七龙珠 ドラゴンボール》；狗空，悟天克斯",},
+		{title:"",src:"./img/pics/huoyingrenzhe.webp",content:"动画：《火影忍者NARUTO -ナルト》。民工三大漫(死神、火影王、海贼王)之一。",},
+		{title:"",src:"./img/pics/ruikehemodi.webp",content:"动画：《Rick and Morty瑞克和莫蒂》；导演: 贾斯汀·罗兰；编剧: 贾斯汀·罗兰 / 丹·哈萌。",},
+		{title:"",src:"./img/pics/yijiazhizhu.webp",content:"动画：《King of the Hill一家之主》；yep!yep!yep!",},
 		{title:"",src:"./img/pics/qinghuida1988.webp",content:"剧：《请回答1988》；成宝拉。",},
-		{title:"",src:"./img/pics/dongjingaiqinggushi.webp",content:"剧：《东京爱情故事》；赤名莉香。",},
-		{title:"",src:"./img/pics/halibote.webp",content:"电影：<Harry Potter哈利波特系列>；铁三角哈利、罗恩和赫敏",},
-		{title:"",src:"./img/pics/hanniba.webp",content:"剧：<Hannibal汉尼拔系列>；根据著名畅销小说《红龙》（Red Dragon）和同名电影改编",},
+		{title:"",src:"./img/pics/dongjingaiqinggushi.webp",content:"剧：《东京爱情故事》；只要有爱，什么困难都是可以被解决的--赤名莉香。",},
+		{title:"",src:"./img/pics/halibote.webp",content:"电影：《Harry Potter哈利波特》系列；铁三角哈利、罗恩和赫敏",},
+		{title:"",src:"./img/pics/hanniba.webp",content:"剧：《Hannibal汉尼拔》；根据著名畅销小说《红龙》（Red Dragon）和同名电影改编",},
+		{title:"",src:"./img/pics/laoyouji.webp",content:"剧：《Friends老友记》；美国全国广播公司出品的系列情景喜剧，由大卫·克莱恩、玛尔塔·考夫曼担任主创，凯文·布赖特 、Gary Halvorson、迈克尔·莱拜克等执导 [8]，詹妮弗·安妮斯顿、大卫·修蒙、柯特妮·考克斯、丽莎·库卓、马特·勒布朗和马修·派瑞主演",},
+		{title:"",src:"./img/pics/quanlideyouxi.webp",content:"剧：《Game of Thrones权利的游戏》；美国HBO电视网制作推出的一部中世纪史诗奇幻题材的电视剧。该剧改编自美国作家乔治·R·R·马丁的奇幻小说《冰与火之歌》系列",},
+		{title:"",src:"./img/pics/heijing.webp",content:"剧：《Black Mirror黑镜》；英国迷你剧，以极端的黑色幽默讽刺和探讨了科技对人类生活产生的影响",},
 		
 	];
 	for (var i = 0; i < mPicList.length; i++){
@@ -891,7 +917,7 @@ function picsLoad(){
 
 <script>
 function Load(){
-	bgChange()
+	bgChange();
 	sxLoad();
 	//picsLoad();
 	mPicLoad();
