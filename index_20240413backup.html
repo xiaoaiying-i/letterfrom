@@ -1,0 +1,961 @@
+<!doctype html><html dl>
+
+<head>
+
+<title>艾影的信</title>
+<link rel="stylesheet" href="css/player.css">
+<style>
+
+body {
+  text-align:center;
+  font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+  background:rgb(51,51,51);
+  margin:0;
+
+}
+
+div::-webkit-scrollbar {
+	width:0.1px;
+}
+
+#header {
+  //position:absolute;
+  width:100%;
+  padding-top:20px;
+  //top:50%;
+  //margin-top:-210px;
+  -webkit-transition:all 1s;
+  transition:all 1s;
+  //opacity:0;
+
+}
+
+#header {
+  //margin-top:-270px;
+  margin-bottom:20px;
+  opacity:0.3;
+}
+
+#header:hover { <!--.reveal -->
+  opacity:0.9;
+  -webkit-transition:all 200ms;
+  transition:all 200ms;
+
+}
+
+#header, #header a {
+  height:40px;
+  color:white;
+  font-size:30px;
+  text-decoration:none;
+  font-family:'Helvetica Neue',Helvetica,sans-serif;
+}
+
+#header a:hover {
+  text-decoration:underline;
+
+}
+
+#header iframe {
+  //position:absolute;
+  top:0.3em;
+  margin-lefT:0.5em;
+
+}
+
+.ta {
+	position:absolute;
+	right:50%;
+	//top:50%;
+	//margin-top:-380px;
+	height:420px;
+	width:620px;
+	background:rgb(35,36,38);
+	z-index:2;
+	-webkit-transition:all 1s, color 600ms, outline 50ms;
+	transition:all 1s, color 600ms, outline 50ms;
+	overflow:hidden;
+
+}
+
+.textarea {
+  display:block;
+  background:none;
+  height:400px;
+  width:600px;
+  padding:10px;
+  color:rgb(236,236,236);
+  font-size:130%;
+/*  border:1px solid rgb(171,202,243);*/
+  border:0;
+
+}
+
+.textarea.dim {
+	color:rgba(236,236,236,0.3);
+}
+
+#rhs {
+  display:block;
+  position:absolute;
+  left:50%;
+  //top:50%;
+  //margin-top:-380px;
+  height:420px;
+  width:320px;
+  background:rgba(230,230,230,1);
+  white-space:pre;
+  -webkit-transition:all 1s;
+  -transition:all 1s;
+  font-size:80%;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  text-align:left;
+}
+
+#rhs #code {
+  height:400px;
+  width:600px;
+  padding:10px;
+  background:none !important;
+}
+
+.ta {
+  margin-right:-310px;
+}
+
+#rhs {
+  margin-left:-210px;
+}
+
+.reveal .ta, .reveal #rhs {
+  margin-right:-160px;
+  margin-left:160px;
+}
+
+/*-----图片css-----*/
+.imgDiv {
+  //height:400px;
+  //width:920px;
+  //padding:10px;
+  //margin-top:450px;
+  //margin-left:500px;
+  //background:none !important;
+  //border: 1px solid black;
+  
+  display:block;
+  position:absolute;
+  left:50%;
+  //top:55%;
+  top:960px;
+  //margin-top:-10px;
+  width:940px;
+  //white-space:pre;
+  -webkit-transition:all 1s;
+  -transition:all 1s;
+  font-size:80%;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  margin-left:-460px;
+  //border: 1px solid black;
+}
+
+.img { 
+  height:200px;
+  width:130px;
+  //margin:10px;
+}
+
+/*.imgDiv:hover img{display:none;}*/
+
+
+.info_container{/*卡片总div样式*/
+	position:relative;
+	width: 100%;;
+	//margin:0 auto;/*居中*/
+	padding-bottom:50px;
+	display:flex;/*弹性盒子布局*/
+	flex-wrap:wrap;/*可换行*/
+	justify-content:center;/*两端对齐*/
+	margin-top：10px;
+	background-color: rgb(35,36,38);
+}
+.info_card{/*信息小卡片样式*/
+	width: 250px;
+	height:200px;
+	margin:25px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	text-align: center;
+	position: relative;
+ }
+.info_text{
+	padding: 20px;
+}
+.zh,.fan, #zhimg {/*正反面统一样式*/
+	width:100%;
+	height:100%;
+	text-align: center;
+	transition: all 2s;
+	backface-visibility: hidden;
+	/*正反面居于相同位置*/
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.info_card img{
+	width:100%;
+	height:100%;
+}
+.fan {/*反面特有样式*/
+	background:url(../img/x3.jpg);
+	background-size:100% 100%;
+	padding-top:10px;
+	transform: rotateY(-180deg) rotateZ(-180deg);/* 背面先旋转负180度为不可见 */
+}
+.fan p{/*卡下简介p标签样式*/
+	display: block;
+	text-align:left;
+	font-size:15px;
+	margin:10px;
+	line-height:20px;
+	color:white;
+	text-align: justify;/*文本两端对齐*/
+	text-justify: inter-character;/*文本两端对齐，中文也起作用*/
+	word-break:normal;
+    white-space:pre-warp;
+    word-wrapL:break-word;
+}
+.info_card:hover .zh {/*鼠标移动到：正面以y和z轴旋转180度*/
+	transform: rotateY(180deg) rotateZ(180deg);
+}
+.info_card:hover .fan {
+	transform: rotateY(0) rotateZ(0);
+}
+/*-----图片css-----*/
+
+/*-----随写css-----*/
+.suixie {
+	position:absolute;
+	left:50%;
+	top:520px;
+	//margin-top:-380px;
+	height:420px;
+	width:620px;
+	background:rgb(35,36,38);
+	z-index:2;
+	-webkit-transition:all 1s, color 600ms, outline 50ms;
+	transition:all 1s, color 600ms, outline 50ms;
+	overflow:hidden;
+    //margin-right:-310px;
+	margin-left:-140px;
+    margin-right:160px;
+}
+
+#suixielist {
+  display:block;
+  position:absolute;
+  right:50%;
+  top:520px;
+  //margin-top:-380px;
+  height:420px;
+  width:320px;
+  background:rgba(230,230,230,1);
+  white-space:pre;
+  -webkit-transition:all 1s;
+  -transition:all 1s;
+  font-size:80%;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  text-align:left;
+  
+  //margin-left:-210px;
+  //background:none !important;
+  margin-right:140px;
+  //margin-left:160px;
+}
+/*-----随写css-----*/
+
+</style>
+
+</head>
+
+<body > <!--class="reveal"-->
+    
+	<!-- ----header---- -->
+	<div id="header">
+	  <a style='display: block; text-align: center' href='https://xiaoaiying-i.github.io/aiyblog/'>
+		  from by  @aiyingi (查看博客)
+	  </a>
+	</div>
+	<!-- ----header---- -->
+
+	<div class="ta">
+		<textarea id="letter-textarea" spellcheck="false" class="textarea" style="resize:none;"></textarea>
+		<textarea id="letter-textarea" style="resize:none;" id="usage" title="Just 578 bytes gzipped!" readonly spellcheck='off' wrap='off'>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" type="text/javascript">&lt;/script&gt;
+		&lt;script src="https://iamdanfox.github.io/typetype/jquery.typetype.min.js" type="text/javascript"&gt;&lt;/script&gt;</textarea>
+	</div>
+
+	<div id="rhs" style="overflow:auto"><!---->
+		<a id="messag1" style='display: block; text-align: center'>20240413_1
+		<a id="messag1_all" style='display: block; text-align: center'>查看全文</a></a>
+	
+	   <!-- <a id="letter10" style='display: block; text-align: center'>letter10_相遇即幸运
+		<a id="letter10_all" style='display: block; text-align: center'>查看全文</a></a>
+		
+	    <a id="letter9" style='display: block; text-align: center'>letter9_祝你幸福
+		<a id="letter9_all" style='display: block; text-align: center'>查看全文</a></a>
+		
+	    <a id="letter8" style='display: block; text-align: center'>letter8_喜欢与想念
+		<a id="letter8_all" style='display: block; text-align: center'>查看全文</a></a>
+	    
+		<a id="letter7" style='display: block; text-align: center'>letter7_在想些啥
+		<a id="letter7_all" style='display: block; text-align: center'>查看全文</a></a>
+	
+		<a id="letter6" style='display: block; text-align: center'>letter6_思念就像微风
+		<a id="letter6_all" style='display: block; text-align: center'>查看全文</a></a>
+	
+	    <a id="letter5" style='display: block; text-align: center'>letter5_于你于我
+		<a id="letter5_all" style='display: block; text-align: center'>查看全文</a></a>
+	
+	    <a id="letter4" style='display: block; text-align: center'>letter4_偷看你的背影
+		<a id="letter4_all" style='display: block; text-align: center'>查看全文</a></a>
+		
+	    <a id="letter3" style='display: block; text-align: center'>letter3_有空回来看看
+		<a id="letter3_all" style='display: block; text-align: center'>查看全文</a></a>
+		
+		<a id="letter2" style='display: block; text-align: center'>letter2_说点啥
+		<a id="letter2_all" style='display: block; text-align: center'>查看全文</a></a>
+		
+		<a id="letter1" style='display: block; text-align: center'>letter1_您好
+		<a id="letter1_all" style='display: block; text-align: center'>查看全文</a></a>-->
+		
+	</div>
+	
+	
+	<!-- ----sx---- -->
+	<div>
+		<div class="suixie" >
+			<textarea id="sx-textarea" spellcheck="false" readonly class="textarea" style="resize:none;"></textarea>
+			<textarea id="sx-textarea" style="resize:none;" id="usage" title="Just 578 bytes gzipped!" readonly spellcheck='off' wrap='off'>
+			&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" type="text/javascript">&lt;/script&gt;
+			&lt;script src="https://iamdanfox.github.io/typetype/jquery.typetype.min.js" type="text/javascript"&gt;&lt;/script&gt;
+			</textarea>
+		</div>
+		<div id="suixielist" style="overflow:auto"></div>
+			
+	</div>
+	<!-- ----sx---- -->
+	
+		
+	<!-- ----pics---- -->
+	<div class="imgDiv">
+		<!-- #region Jssor Slider Begin -->
+		<!-- Generator: Jssor Slider Maker -->
+		<!-- Source: http://www.jssor.com -->
+		<!-- This is deep minimized code which works independently. -->
+		<script type="text/javascript">
+		(function(g,h,c,j,e,k,l){/*! Jssor */
+		new(function(){});var f={mc:function(a){return-c.cos(a*c.PI)/2+.5},Oc:function(a){return a},Pc:function(a){return-a*(a-2)},Be:function(a){return a*a*a},Ke:function(a){return a==0?0:c.pow(2,10*(a-1))}},d={W:f.mc,C:f.Oc,Rb:f.Pc,q:f.Be,s:f.Ke};var b=new function(){var d=this,Ab=/\S+/g,F=1,yb=2,fb=3,eb=4,jb=5,G,r=0,i=0,s=0,X=0,z=0,I=navigator,ob=I.appName,o=I.userAgent,p=parseFloat;function Ib(){if(!G){G={Ze:"ontouchstart"in g||"createTouch"in h};var a;if(I.pointerEnabled||(a=I.msPointerEnabled))G.Kd=a?"msTouchAction":"touchAction"}return G}function v(j){if(!r){r=-1;if(ob=="Microsoft Internet Explorer"&&!!g.attachEvent&&!!g.ActiveXObject){var e=o.indexOf("MSIE");r=F;s=p(o.substring(e+5,o.indexOf(";",e)));/*@cc_on X=@_jscript_version@*/;i=h.documentMode||s}else if(ob=="Netscape"&&!!g.addEventListener){var d=o.indexOf("Firefox"),b=o.indexOf("Safari"),f=o.indexOf("Chrome"),c=o.indexOf("AppleWebKit");if(d>=0){r=yb;i=p(o.substring(d+8))}else if(b>=0){var k=o.substring(0,b).lastIndexOf("/");r=f>=0?eb:fb;i=p(o.substring(k+1,b))}else{var a=/Trident\/.*rv:([0-9]{1,}[\.0-9]{0,})/i.exec(o);if(a){r=F;i=s=p(a[1])}}if(c>=0)z=p(o.substring(c+12))}else{var a=/(opera)(?:.*version|)[ \/]([\w.]+)/i.exec(o);if(a){r=jb;i=p(a[2])}}}return j==r}function q(){return v(F)}function Q(){return q()&&(i<6||h.compatMode=="BackCompat")}function db(){return v(fb)}function ib(){return v(jb)}function vb(){return db()&&z>534&&z<535}function J(){v();return z>537||i>42||r==F&&i>=11}function O(){return q()&&i<9}function wb(a){var b,c;return function(f){if(!b){b=e;var d=a.substr(0,1).toUpperCase()+a.substr(1);n([a].concat(["WebKit","ms","Moz","O","webkit"]),function(g,e){var b=a;if(e)b=g+d;if(f.style[b]!=l)return c=b})}return c}}function ub(b){var a;return function(c){a=a||wb(b)(c)||b;return a}}var K=ub("transform");function nb(a){return{}.toString.call(a)}var kb={};n(["Boolean","Number","String","Function","Array","Date","RegExp","Object"],function(a){kb["[object "+a+"]"]=a.toLowerCase()});function n(b,d){var a,c;if(nb(b)=="[object Array]"){for(a=0;a<b.length;a++)if(c=d(b[a],a,b))return c}else for(a in b)if(c=d(b[a],a,b))return c}function C(a){return a==j?String(a):kb[nb(a)]||"object"}function lb(a){for(var b in a)return e}function A(a){try{return C(a)=="object"&&!a.nodeType&&a!=a.window&&(!a.constructor||{}.hasOwnProperty.call(a.constructor.prototype,"isPrototypeOf"))}catch(b){}}function u(a,b){return{x:a,y:b}}function rb(b,a){setTimeout(b,a||0)}function H(b,d,c){var a=!b||b=="inherit"?"":b;n(d,function(c){var b=c.exec(a);if(b){var d=a.substr(0,b.index),e=a.substr(b.index+b[0].length+1,a.length-1);a=d+e}});a=c+(!a.indexOf(" ")?"":" ")+a;return a}function tb(b,a){if(i<9)b.style.filter=a}d.We=Ib;d.Md=q;d.rf=db;d.Id=ib;d.Af=J;d.tb=O;wb("transform");d.Ad=function(){return i};d.xf=function(){v();return z};d.Qb=rb;function Y(a){a.constructor===Y.caller&&a.sd&&a.sd.apply(a,Y.caller.arguments)}d.sd=Y;d.Ab=function(a){if(d.vf(a))a=h.getElementById(a);return a};function t(a){return a||g.event}d.Bd=t;d.qc=function(b){b=t(b);var a=b.target||b.srcElement||h;if(a.nodeType==3)a=d.Cd(a);return a};d.wd=function(a){a=t(a);return{x:a.pageX||a.clientX||0,y:a.pageY||a.clientY||0}};function D(c,d,a){if(a!==l)c.style[d]=a==l?"":a;else{var b=c.currentStyle||c.style;a=b[d];if(a==""&&g.getComputedStyle){b=c.ownerDocument.defaultView.getComputedStyle(c,j);b&&(a=b.getPropertyValue(d)||b[d])}return a}}function ab(b,c,a,d){if(a!==l){if(a==j)a="";else d&&(a+="px");D(b,c,a)}else return p(D(b,c))}function m(c,a){var d=a?ab:D,b;if(a&4)b=ub(c);return function(e,f){return d(e,b?b(e):c,f,a&2)}}function Db(b){if(q()&&s<9){var a=/opacity=([^)]*)/.exec(b.style.filter||"");return a?p(a[1])/100:1}else return p(b.style.opacity||"1")}function Fb(b,a,f){if(q()&&s<9){var h=b.style.filter||"",i=new RegExp(/[\s]*alpha\([^\)]*\)/g),e=c.round(100*a),d="";if(e<100||f)d="alpha(opacity="+e+") ";var g=H(h,[i],d);tb(b,g)}else b.style.opacity=a==1?"":c.round(a*100)/100}var L={a:["rotate"],fb:["rotateX"],db:["rotateY"],cc:["skewX"],dc:["skewY"]};if(!J())L=B(L,{D:["scaleX",2],J:["scaleY",2],ib:["translateZ",1]});function M(d,a){var c="";if(a){if(q()&&i&&i<10){delete a.fb;delete a.db;delete a.ib}b.j(a,function(d,b){var a=L[b];if(a){var e=a[1]||0;if(N[b]!=d)c+=" "+a[0]+"("+d+(["deg","px",""])[e]+")"}});if(J()){if(a.xb||a.nb||a.ib)c+=" translate3d("+(a.xb||0)+"px,"+(a.nb||0)+"px,"+(a.ib||0)+"px)";if(a.D==l)a.D=1;if(a.J==l)a.J=1;if(a.D!=1||a.J!=1)c+=" scale3d("+a.D+", "+a.J+", 1)"}}d.style[K(d)]=c}d.Ld=m("transformOrigin",4);d.of=m("backfaceVisibility",4);d.nf=m("transformStyle",4);d.Xe=m("perspective",6);d.le=m("perspectiveOrigin",4);d.Ye=function(a,b){if(q()&&s<9||s<10&&Q())a.style.zoom=b==1?"":b;else{var c=K(a),f="scale("+b+")",e=a.style[c],g=new RegExp(/[\s]*scale\(.*?\)/g),d=H(e,[g],f);a.style[c]=d}};d.gc=function(b,a){return function(c){c=t(c);var f=c.type,e=c.relatedTarget||(f=="mouseout"?c.toElement:c.fromElement);(!e||e!==a&&!d.pf(a,e))&&b(c)}};d.g=function(a,e,b,c){a=d.Ab(a);if(a.addEventListener){e=="mousewheel"&&a.addEventListener("DOMMouseScroll",b,c);a.addEventListener(e,b,c)}else if(a.attachEvent){a.attachEvent("on"+e,b);c&&a.setCapture&&a.setCapture()}};d.T=function(a,c,e,b){a=d.Ab(a);if(a.removeEventListener){c=="mousewheel"&&a.removeEventListener("DOMMouseScroll",e,b);a.removeEventListener(c,e,b)}else if(a.detachEvent){a.detachEvent("on"+c,e);b&&a.releaseCapture&&a.releaseCapture()}};d.ac=function(a){a=t(a);a.preventDefault&&a.preventDefault();a.cancel=e;a.returnValue=k};d.bf=function(a){a=t(a);a.stopPropagation&&a.stopPropagation();a.cancelBubble=e};d.R=function(d,c){var a=[].slice.call(arguments,2),b=function(){var b=a.concat([].slice.call(arguments,0));return c.apply(d,b)};return b};d.Ub=function(d,c){for(var b=[],a=d.firstChild;a;a=a.nextSibling)(c||a.nodeType==1)&&b.push(a);return b};function mb(a,c,e,b){b=b||"u";for(a=a?a.firstChild:j;a;a=a.nextSibling)if(a.nodeType==1){if(U(a,b)==c)return a;if(!e){var d=mb(a,c,e,b);if(d)return d}}}d.E=mb;function S(a,d,f,b){b=b||"u";var c=[];for(a=a?a.firstChild:j;a;a=a.nextSibling)if(a.nodeType==1){U(a,b)==d&&c.push(a);if(!f){var e=S(a,d,f,b);if(e.length)c=c.concat(e)}}return c}function gb(a,c,d){for(a=a?a.firstChild:j;a;a=a.nextSibling)if(a.nodeType==1){if(a.tagName==c)return a;if(!d){var b=gb(a,c,d);if(b)return b}}}d.gf=gb;function xb(a,c,e){var b=[];for(a=a?a.firstChild:j;a;a=a.nextSibling)if(a.nodeType==1){(!c||a.tagName==c)&&b.push(a);if(!e){var d=xb(a,c,e);if(d.length)b=b.concat(d)}}return b}d.hf=xb;d.jf=function(b,a){return b.getElementsByTagName(a)};function B(){var e=arguments,d,c,b,a,g=1&e[0],f=1+g;d=e[f-1]||{};for(;f<e.length;f++)if(c=e[f])for(b in c){a=c[b];if(a!==l){a=c[b];var h=d[b];d[b]=g&&(A(h)||A(a))?B(g,{},h,a):a}}return d}d.G=B;function Z(f,g){var d={},c,a,b;for(c in f){a=f[c];b=g[c];if(a!==b){var e;if(A(a)&&A(b)){a=Z(a,b);e=!lb(a)}!e&&(d[c]=a)}}return d}d.ld=function(a){return C(a)=="function"};d.vf=function(a){return C(a)=="string"};d.jd=function(a){return!isNaN(p(a))&&isFinite(a)};d.j=n;d.lf=A;function R(a){return h.createElement(a)}d.rb=function(){return R("DIV")};d.dd=function(){};function V(b,c,a){if(a==l)return b.getAttribute(c);b.setAttribute(c,a)}function U(a,b){return V(a,b)||V(a,"data-"+b)}d.L=V;d.p=U;function x(b,a){if(a==l)return b.className;b.className=a}d.ad=x;function qb(b){var a={};n(b,function(b){a[b]=b});return a}function sb(b,a){return b.match(a||Ab)}function P(b,a){return qb(sb(b||"",a))}d.me=sb;function bb(b,c){var a="";n(c,function(c){a&&(a+=b);a+=c});return a}function E(a,c,b){x(a,bb(" ",B(Z(P(x(a)),P(c)),P(b))))}d.Cd=function(a){return a.parentNode};d.V=function(a){d.kb(a,"none")};d.H=function(a,b){d.kb(a,b?"none":"")};d.Ud=function(b,a){b.removeAttribute(a)};d.ge=function(){return q()&&i<10};d.ee=function(d,a){if(a)d.style.clip="rect("+c.round(a.k||a.I||0)+"px "+c.round(a.v)+"px "+c.round(a.z)+"px "+c.round(a.f||a.F||0)+"px)";else if(a!==l){var g=d.style.cssText,f=[new RegExp(/[\s]*clip: rect\(.*?\)[;]?/i),new RegExp(/[\s]*cliptop: .*?[;]?/i),new RegExp(/[\s]*clipright: .*?[;]?/i),new RegExp(/[\s]*clipbottom: .*?[;]?/i),new RegExp(/[\s]*clipleft: .*?[;]?/i)],e=H(g,f,"");b.Yb(d,e)}};d.ab=function(){return+new Date};d.N=function(b,a){b.appendChild(a)};d.Wb=function(b,a,c){(c||a.parentNode).insertBefore(b,a)};d.Xb=function(b,a){a=a||b.parentNode;a&&a.removeChild(b)};d.fe=function(a,b){n(a,function(a){d.Xb(a,b)})};d.Kc=function(a){d.fe(d.Ub(a,e),a)};d.Rd=function(a,b){var c=d.Cd(a);b&1&&d.P(a,(d.r(c)-d.r(a))/2);b&2&&d.O(a,(d.u(c)-d.u(a))/2)};d.Nd=function(b,a){return parseInt(b,a||10)};d.ke=p;d.pf=function(b,a){var c=h.body;while(a&&b!==a&&c!==a)try{a=a.parentNode}catch(d){return k}return b===a};function W(e,c,b){var a=e.cloneNode(!c);!b&&d.Ud(a,"id");return a}d.jb=W;d.Eb=function(f,g){var a=new Image;function b(f,e){d.T(a,"load",b);d.T(a,"abort",c);d.T(a,"error",c);g&&g(a,e)}function c(a){b(a,e)}if(ib()&&i<11.6||!f)b(!f);else{d.g(a,"load",b);d.g(a,"abort",c);d.g(a,"error",c);a.src=f}};d.be=function(e,a,f){var c=e.length+1;function b(b){c--;if(a&&b&&b.src==a.src)a=b;!c&&f&&f(a)}n(e,function(a){d.Eb(a.src,b)});b()};d.Wd=function(a,g,i,h){if(h)a=W(a);var c=S(a,g);if(!c.length)c=b.jf(a,g);for(var f=c.length-1;f>-1;f--){var d=c[f],e=W(i);x(e,x(d));b.Yb(e,d.style.cssText);b.Wb(e,d);b.Xb(d)}return a};function Gb(a){var k=this,p="",r=["av","pv","ds","dn"],f=[],q,j=0,g=0,e=0;function i(){E(a,q,f[e||j||g&2||g]);b.lb(a,"pointer-events",e?"none":"")}function c(){j=0;i();d.T(h,"mouseup",c);d.T(h,"touchend",c);d.T(h,"touchcancel",c)}function o(a){if(e)d.ac(a);else{j=4;i();d.g(h,"mouseup",c);d.g(h,"touchend",c);d.g(h,"touchcancel",c)}}k.de=function(a){if(a===l)return g;g=a&2||a&1;i()};k.Mc=function(a){if(a===l)return!e;e=a?0:3;i()};k.ub=a=d.Ab(a);var m=b.me(x(a));if(m)p=m.shift();n(r,function(a){f.push(p+a)});q=bb(" ",f);f.unshift("");d.g(a,"mousedown",o);d.g(a,"touchstart",o)}d.fc=function(a){return new Gb(a)};d.lb=D;d.mb=m("overflow");d.O=m("top",2);d.P=m("left",2);d.r=m("width",2);d.u=m("height",2);d.ae=m("marginLeft",2);d.Qd=m("marginTop",2);d.B=m("position");d.kb=m("display");d.Q=m("zIndex",1);d.Db=function(b,a,c){if(a!=l)Fb(b,a,c);else return Db(b)};d.Yb=function(a,b){if(b!=l)a.style.cssText=b;else return a.style.cssText};var T={e:d.Db,k:d.O,f:d.P,hb:d.r,bb:d.u,zb:d.B,Kf:d.kb,X:d.Q};function w(g,k){var f=O(),b=J(),e=vb(),h=K(g);function i(b,d,a){var e=b.sb(u(-d/2,-a/2)),f=b.sb(u(d/2,-a/2)),g=b.sb(u(d/2,a/2)),h=b.sb(u(-d/2,a/2));b.sb(u(300,300));return u(c.min(e.x,f.x,g.x,h.x)+d/2,c.min(e.y,f.y,g.y,h.y)+a/2)}function a(e,a){a=a||{};var n=a.ib||0,p=(a.fb||0)%360,q=(a.db||0)%360,u=(a.a||0)%360,k=a.D,m=a.J,g=a.Lf;if(k==l)k=1;if(m==l)m=1;if(g==l)g=1;if(f){n=0;p=0;q=0;g=0}var c=new Cb(a.xb,a.nb,n);c.fb(p);c.db(q);c.je(u);c.ce(a.cc,a.dc);c.Cc(k,m,g);if(b){c.ob(a.F,a.I);e.style[h]=c.Zd()}else if(!X||X<9){var o="",j={x:0,y:0};if(a.eb)j=i(c,a.eb,a.pb);d.Qd(e,j.y);d.ae(e,j.x);o=c.Yd();var s=e.style.filter,t=new RegExp(/[\s]*progid:DXImageTransform\.Microsoft\.Matrix\([^\)]*\)/g),r=H(s,[t],o);tb(e,r)}}w=function(f,c){c=c||{};var h=c.F,i=c.I,g;n(T,function(a,b){g=c[b];g!==l&&a(f,g)});d.ee(f,c.i);if(!b){h!=l&&d.P(f,(c.Tc||0)+h);i!=l&&d.O(f,(c.Rc||0)+i)}if(c.Xd)if(e)rb(d.R(j,M,f,c));else a(f,c)};d.Jb=M;if(e)d.Jb=w;if(f)d.Jb=a;else if(!b)a=M;d.M=w;w(g,k)}d.Jb=w;d.M=w;function Cb(i,k,o){var d=this,b=[1,0,0,0,0,1,0,0,0,0,1,0,i||0,k||0,o||0,1],h=c.sin,g=c.cos,l=c.tan;function f(a){return a*c.PI/180}function n(a,b){return{x:a,y:b}}function m(c,e,l,m,o,r,t,u,w,z,A,C,E,b,f,k,a,g,i,n,p,q,s,v,x,y,B,D,F,d,h,j){return[c*a+e*p+l*x+m*F,c*g+e*q+l*y+m*d,c*i+e*s+l*B+m*h,c*n+e*v+l*D+m*j,o*a+r*p+t*x+u*F,o*g+r*q+t*y+u*d,o*i+r*s+t*B+u*h,o*n+r*v+t*D+u*j,w*a+z*p+A*x+C*F,w*g+z*q+A*y+C*d,w*i+z*s+A*B+C*h,w*n+z*v+A*D+C*j,E*a+b*p+f*x+k*F,E*g+b*q+f*y+k*d,E*i+b*s+f*B+k*h,E*n+b*v+f*D+k*j]}function e(c,a){return m.apply(j,(a||b).concat(c))}d.Cc=function(a,c,d){if(a!=1||c!=1||d!=1)b=e([a,0,0,0,0,c,0,0,0,0,d,0,0,0,0,1])};d.ob=function(a,c,d){b[12]+=a||0;b[13]+=c||0;b[14]+=d||0};d.fb=function(c){if(c){a=f(c);var d=g(a),i=h(a);b=e([1,0,0,0,0,d,i,0,0,-i,d,0,0,0,0,1])}};d.db=function(c){if(c){a=f(c);var d=g(a),i=h(a);b=e([d,0,-i,0,0,1,0,0,i,0,d,0,0,0,0,1])}};d.je=function(c){if(c){a=f(c);var d=g(a),i=h(a);b=e([d,i,0,0,-i,d,0,0,0,0,1,0,0,0,0,1])}};d.ce=function(a,c){if(a||c){i=f(a);k=f(c);b=e([1,l(k),0,0,l(i),1,0,0,0,0,1,0,0,0,0,1])}};d.sb=function(c){var a=e(b,[1,0,0,0,0,1,0,0,0,0,1,0,c.x,c.y,0,1]);return n(a[12],a[13])};d.Zd=function(){return"matrix3d("+b.join(",")+")"};d.Yd=function(){return"progid:DXImageTransform.Microsoft.Matrix(M11="+b[0]+", M12="+b[4]+", M21="+b[1]+", M22="+b[5]+", SizingMethod='auto expand')"}}new function(){var a=this;function b(d,g){for(var j=d[0].length,i=d.length,h=g[0].length,f=[],c=0;c<i;c++)for(var k=f[c]=[],b=0;b<h;b++){for(var e=0,a=0;a<j;a++)e+=d[c][a]*g[a][b];k[b]=e}return f}a.D=function(b,c){return a.Uc(b,c,0)};a.J=function(b,c){return a.Uc(b,0,c)};a.Uc=function(a,c,d){return b(a,[[c,0],[0,d]])};a.sb=function(d,c){var a=b(d,[[c.x],[c.y]]);return u(a[0][0],a[1][0])}};var N={Tc:0,Rc:0,F:0,I:0,c:1,D:1,J:1,a:0,fb:0,db:0,xb:0,nb:0,ib:0,cc:0,dc:0};d.Lc=function(a){var c=a||{};if(a)if(b.ld(a))c={zc:c};else if(b.ld(a.i))c.i={zc:a.i};return c};d.Hc=function(k,m,x,q,z,A,n){var a=m;if(k){a={};for(var g in m){var B=A[g]||1,w=z[g]||[0,1],d=(x-w[0])/w[1];d=c.min(c.max(d,0),1);d=d*B;var u=c.floor(d);if(d!=u)d-=u;var h=q.zc||f.mc,i,C=k[g],o=m[g];if(b.jd(o)){h=q[g]||h;var y=h(d);i=C+o*y}else{i=b.G({Pb:{}},k[g]);var v=q[g]||{};b.j(o.Pb||o,function(e,a){h=v[a]||v.zc||h;var c=h(d),b=e*c;i.Pb[a]=b;i[a]+=b})}a[g]=i}var t=b.j(m,function(b,a){return N[a]!=l});t&&b.j(N,function(c,b){if(a[b]==l&&k[b]!==l)a[b]=k[b]});if(t){if(a.c)a.D=a.J=a.c;a.eb=n.eb;a.pb=n.pb;a.Xd=e}}if(m.i&&n.ob){var p=a.i.Pb,s=(p.k||0)+(p.z||0),r=(p.f||0)+(p.v||0);a.f=(a.f||0)+r;a.k=(a.k||0)+s;a.i.f-=r;a.i.v-=r;a.i.k-=s;a.i.z-=s}if(a.i&&b.ge()&&!a.i.k&&!a.i.f&&!a.i.I&&!a.i.F&&a.i.v==n.eb&&a.i.z==n.pb)a.i=j;return a}};function n(){var a=this,d=[];function i(a,b){d.push({xc:a,wc:b})}function h(a,c){b.j(d,function(b,e){b.xc==a&&b.wc===c&&d.splice(e,1)})}a.Hb=a.addEventListener=i;a.removeEventListener=h;a.n=function(a){var c=[].slice.call(arguments,1);b.j(d,function(b){b.xc==a&&b.wc.apply(g,c)})}}var m=function(z,C,i,J,M,L){z=z||0;var a=this,q,n,o,u,A=0,G,H,F,B,y=0,h=0,m=0,D,l,f,d,p,w=[],x;function O(a){f+=a;d+=a;l+=a;h+=a;m+=a;y+=a}function t(o){var g=o;if(p&&(g>=d||g<=f))g=((g-f)%p+p)%p+f;if(!D||u||h!=g){var j=c.min(g,d);j=c.max(j,f);if(!D||u||j!=m){if(L){var k=(j-l)/(C||1);if(i.gd)k=1-k;var n=b.Hc(M,L,k,G,F,H,i);if(x)b.j(n,function(b,a){x[a]&&x[a](J,b)});else b.M(J,n)}a.uc(m-l,j-l);m=j;b.j(w,function(b,c){var a=o<h?w[w.length-c-1]:b;a.cb(m-y)});var r=h,q=m;h=g;D=e;a.bc(r,q)}}}function E(a,b,e){b&&a.ec(d);if(!e){f=c.min(f,a.td()+y);d=c.max(d,a.Dc()+y)}w.push(a)}var r=g.requestAnimationFrame||g.webkitRequestAnimationFrame||g.mozRequestAnimationFrame||g.msRequestAnimationFrame;if(b.rf()&&b.Ad()<7)r=j;r=r||function(a){b.Qb(a,i.gb)};function I(){if(q){var d=b.ab(),e=c.min(d-A,i.Qc),a=h+e*o;A=d;if(a*o>=n*o)a=n;t(a);if(!u&&a*o>=n*o)K(B);else r(I)}}function s(g,i,j){if(!q){q=e;u=j;B=i;g=c.max(g,f);g=c.min(g,d);n=g;o=n<h?-1:1;a.pd();A=b.ab();r(I)}}function K(b){if(q){u=q=B=k;a.qd();b&&b()}}a.yd=function(a,b,c){s(a?h+a:d,b,c)};a.xd=s;a.wb=K;a.Vd=function(a){s(a)};a.Z=function(){return h};a.Wc=function(){return n};a.Lb=function(){return m};a.cb=t;a.ob=function(a){t(h+a)};a.bd=function(){return q};a.Pd=function(a){p=a};a.ec=O;a.nd=function(a,b){E(a,0,b)};a.Fc=function(a){E(a,1)};a.td=function(){return f};a.Dc=function(){return d};a.bc=a.pd=a.qd=a.uc=b.dd;a.hc=b.ab();i=b.G({gb:16,Qc:50},i);p=i.hd;x=i.he;f=l=z;d=z+C;H=i.A||{};F=i.Bb||{};G=b.Lc(i.l)};var p=new function(){var h=this;function g(b,a,c){c.push(a);b[a]=b[a]||[];b[a].push(c)}h.Sd=function(d){for(var e=[],a,b=0;b<d.U;b++)for(a=0;a<d.m;a++)g(e,c.ceil(1e5*c.random())%13,[b,a]);return e}},s=function(l,s,q,u,z){var d=this,v,g,a,y=0,x=u.ie,r,h=8;function t(a){if(a.k)a.I=a.k;if(a.f)a.F=a.f;b.j(a,function(a){b.lf(a)&&t(a)})}function i(g,d){var a={gb:d,o:1,Qb:0,m:1,U:1,e:0,c:0,i:0,ob:k,K:k,gd:k,Od:p.Sd,Y:{vb:0,Zc:0},l:f.mc,A:{},Tb:[],Bb:{}};b.G(a,g);t(a);a.l=b.Lc(a.l);a.mf=c.ceil(a.o/a.gb);a.kf=function(c,b){c/=a.m;b/=a.U;var f=c+"x"+b;if(!a.Tb[f]){a.Tb[f]={hb:c,bb:b};for(var d=0;d<a.m;d++)for(var e=0;e<a.U;e++)a.Tb[f][e+","+d]={k:e*b,v:d*c+c,z:e*b+b,f:d*c}}return a.Tb[f]};if(a.kc){a.kc=i(a.kc,d);a.K=e}return a}function o(B,h,a,w,o,m){var z=this,u,v={},i={},n=[],f,d,s,q=a.Y.vb||0,r=a.Y.Zc||0,g=a.kf(o,m),p=C(a),D=p.length-1,t=a.o+a.Qb*D,x=w+t,l=a.K,y;x+=50;function C(a){var b=a.Od(a);return a.gd?b.reverse():b}z.kd=x;z.Ob=function(d){d-=w;var e=d<t;if(e||y){y=e;if(!l)d=t-d;var f=c.ceil(d/a.gb);b.j(i,function(a,e){var d=c.max(f,a.ff);d=c.min(d,a.length-1);if(a.Vc!=d){if(!a.Vc&&!l)b.H(n[e]);else d==a.ef&&l&&b.V(n[e]);a.Vc=d;b.M(n[e],a[d])}})}};h=b.jb(h);b.Jb(h,j);if(b.tb()){var E=!h["no-image"],A=b.hf(h);b.j(A,function(a){(E||a["jssor-slider"])&&b.Db(a,b.Db(a),e)})}b.j(p,function(h,j){b.j(h,function(G){var K=G[0],J=G[1],t=K+","+J,n=k,p=k,x=k;if(q&&J%2){if(q&3)n=!n;if(q&12)p=!p;if(q&16)x=!x}if(r&&K%2){if(r&3)n=!n;if(r&12)p=!p;if(r&16)x=!x}a.k=a.k||a.i&4;a.z=a.z||a.i&8;a.f=a.f||a.i&1;a.v=a.v||a.i&2;var E=p?a.z:a.k,B=p?a.k:a.z,D=n?a.v:a.f,C=n?a.f:a.v;a.i=E||B||D||C;s={};d={I:0,F:0,e:1,hb:o,bb:m};f=b.G({},d);u=b.G({},g[t]);if(a.e)d.e=2-a.e;if(a.X){d.X=a.X;f.X=0}var I=a.m*a.U>1||a.i;if(a.c||a.a){var H=e;if(b.tb())if(a.m*a.U>1)H=k;else I=k;if(H){d.c=a.c?a.c-1:1;f.c=1;if(b.tb()||b.Id())d.c=c.min(d.c,2);var N=a.a||0;d.a=N*360*(x?-1:1);f.a=0}}if(I){var h=u.Pb={};if(a.i){var w=a.If||1;if(E&&B){h.k=g.bb/2*w;h.z=-h.k}else if(E)h.z=-g.bb*w;else if(B)h.k=g.bb*w;if(D&&C){h.f=g.hb/2*w;h.v=-h.f}else if(D)h.v=-g.hb*w;else if(C)h.f=g.hb*w}s.i=u;f.i=g[t]}var L=n?1:-1,M=p?1:-1;if(a.x)d.F+=o*a.x*L;if(a.y)d.I+=m*a.y*M;b.j(d,function(a,c){if(b.jd(a))if(a!=f[c])s[c]=a-f[c]});v[t]=l?f:d;var F=a.mf,A=c.round(j*a.Qb/a.gb);i[t]=new Array(A);i[t].ff=A;i[t].ef=A+F-1;for(var z=0;z<=F;z++){var y=b.Hc(f,s,z/F,a.l,a.Bb,a.A,{ob:a.ob,eb:o,pb:m});y.X=y.X||1;i[t].push(y)}})});p.reverse();b.j(p,function(a){b.j(a,function(c){var f=c[0],e=c[1],d=f+","+e,a=h;if(e||f)a=b.jb(h);b.M(a,v[d]);b.mb(a,"hidden");b.B(a,"absolute");B.df(a);n[d]=a;b.H(a,!l)})})}function w(){var b=this,c=0;m.call(b,0,v);b.bc=function(d,b){if(b-c>h){c=b;a&&a.Ob(b);g&&g.Ob(b)}};b.Ic=r}d.cf=function(){var a=0,b=u.Gb,d=b.length;if(x)a=y++%d;else a=c.floor(c.random()*d);b[a]&&(b[a].qb=a);return b[a]};d.af=function(w,x,k,m,b){r=b;b=i(b,h);var j=m.Sc,f=k.Sc;j["no-image"]=!m.Zb;f["no-image"]=!k.Zb;var n=j,p=f,u=b,e=b.kc||i({},h);if(!b.K){n=f;p=j}var t=e.ec||0;g=new o(l,p,e,c.max(t-e.gb,0),s,q);a=new o(l,n,u,c.max(e.gb-t,0),s,q);g.Ob(0);a.Ob(0);v=c.max(g.kd,a.kd);d.qb=w};d.yb=function(){l.yb();g=j;a=j};d.tf=function(){var b=j;if(a)b=new w;return b};if(b.tb()||b.Id()||z&&b.xf()<537)h=16;n.call(d);m.call(d,-1e7,1e7)},i=function(p,fc){var d=this;function Bc(){var a=this;m.call(a,-1e8,2e8);a.wf=function(){var b=a.Lb(),d=c.floor(b),f=t(d),e=b-c.floor(b);return{qb:f,qf:d,zb:e}};a.bc=function(b,a){var f=c.floor(a);if(f!=a&&a>b)f++;Tb(f,e);d.n(i.yf,t(a),t(b),a,b)}}function Ac(){var a=this;m.call(a,0,0,{hd:q});b.j(C,function(b){D&1&&b.Pd(q);a.Fc(b);b.ec(kb/bc)})}function zc(){var a=this,b=Ub.ub;m.call(a,-1,2,{l:f.Oc,he:{zb:Zb},hd:q},b,{zb:1},{zb:-2});a.Nb=b}function mc(o,n){var b=this,f,g,h,l,c;m.call(b,-1e8,2e8,{Qc:100});b.pd=function(){M=e;R=j;d.n(i.zf,t(w.Z()),w.Z())};b.qd=function(){M=k;l=k;var a=w.wf();d.n(i.uf,t(w.Z()),w.Z());!a.zb&&Dc(a.qf,s)};b.bc=function(i,e){var b;if(l)b=c;else{b=g;if(h){var d=e/h;b=a.sf(d)*(g-f)+f}}w.cb(b)};b.Sb=function(a,d,c,e){f=a;g=d;h=c;w.cb(a);b.cb(0);b.xd(c,e)};b.Ue=function(a){l=e;c=a;b.yd(a,j,e)};b.Te=function(a){c=a};w=new Bc;w.nd(o);w.nd(n)}function oc(){var c=this,a=Xb();b.Q(a,0);b.lb(a,"pointerEvents","none");c.ub=a;c.df=function(c){b.N(a,c);b.H(a)};c.yb=function(){b.V(a);b.Kc(a)}}function xc(o,g){var f=this,r,M,v,l,y=[],x,B,W,H,S,F,h,w,p;m.call(f,-u,u+1,{});function E(a){r&&r.Yc();T(o,a,0);F=e;r=new I.S(o,I,b.ke(b.p(o,"idle"))||lc);r.cb(0)}function Z(){r.hc<I.hc&&E()}function O(p,r,o){if(!H){H=e;if(l&&o){var h=o.width,c=o.height,n=h,m=c;if(h&&c&&a.Fb){if(a.Fb&3&&(!(a.Fb&4)||h>K||c>J)){var j=k,q=K/J*c/h;if(a.Fb&1)j=q>1;else if(a.Fb&2)j=q<1;n=j?h*J/c:K;m=j?J:c*K/h}b.r(l,n);b.u(l,m);b.O(l,(J-m)/2);b.P(l,(K-n)/2)}b.B(l,"absolute");d.n(i.ze,g)}}b.V(r);p&&p(f)}function Y(b,c,d,e){if(e==R&&s==g&&N)if(!Cc){var a=t(b);A.af(a,g,c,f,d);c.Ve();U.ec(a-U.td()-1);U.cb(a);z.Sb(b,b,0)}}function bb(b){if(b==R&&s==g){if(!h){var a=j;if(A)if(A.qb==g)a=A.tf();else A.yb();Z();h=new vc(o,g,a,r);h.fd(p)}!h.bd()&&h.Gc()}}function G(d,e,l){if(d==g){if(d!=e)C[e]&&C[e].Jc();else!l&&h&&h.ye();p&&p.Mc();var m=R=b.ab();f.Eb(b.R(j,bb,m))}else{var k=c.min(g,d),i=c.max(g,d),o=c.min(i-k,k+q-i),n=u+a.xe-1;(!S||o<=n)&&f.Eb()}}function db(){if(s==g&&h){h.wb();p&&p.we();p&&p.ve();h.Fd()}}function eb(){s==g&&h&&h.wb()}function ab(a){!P&&d.n(i.ue,g,a)}function Q(){p=w.pInstance;h&&h.fd(p)}f.Eb=function(c,a){a=a||v;if(y.length&&!H){b.H(a);if(!W){W=e;d.n(i.se,g);b.j(y,function(a){if(!b.L(a,"src")){a.src=b.p(a,"src2");b.kb(a,a["display-origin"])}})}b.be(y,l,b.R(j,O,c,a))}else O(c,a)};f.re=function(){var i=g;if(a.vd<0)i-=q;var d=i+a.vd*tc;if(D&2)d=t(d);if(!(D&1)&&!ib)d=c.max(0,c.min(d,q-u));if(d!=g){if(A){var e=A.cf(q);if(e){var k=R=b.ab(),h=C[t(d)];return h.Eb(b.R(j,Y,d,h,e,k),v)}}cb(d)}else if(a.Cb){f.Jc();G(g,g)}};f.Ec=function(){G(g,g,e)};f.Jc=function(){p&&p.we();p&&p.ve();f.rd();h&&h.qe();h=j;E()};f.Ve=function(){b.V(o)};f.rd=function(){b.H(o)};f.pe=function(){p&&p.Mc()};function T(a,c,d){if(b.L(a,"jssor-slider"))return;if(!F){if(a.tagName=="IMG"){y.push(a);if(!b.L(a,"src")){S=e;a["display-origin"]=b.kb(a);b.V(a)}}b.tb()&&b.Q(a,(b.Q(a)||0)+1)}var f=b.Ub(a);b.j(f,function(f){var h=f.tagName,i=b.p(f,"u");if(i=="player"&&!w){w=f;if(w.pInstance)Q();else b.g(w,"dataavailable",Q)}if(i=="caption"){if(c){b.Ld(f,b.p(f,"to"));b.of(f,b.p(f,"bf"));b.p(f,"3d")&&b.nf(f,"preserve-3d")}else if(!b.Md()){var g=b.jb(f,k,e);b.Wb(g,f,a);b.Xb(f,a);f=g;c=e}}else if(!F&&!d&&!l){if(h=="A"){if(b.p(f,"u")=="image")l=b.gf(f,"IMG");else l=b.E(f,"image",e);if(l){x=f;b.kb(x,"block");b.M(x,V);B=b.jb(x,e);b.B(x,"relative");b.Db(B,0);b.lb(B,"backgroundColor","#000")}}else if(h=="IMG"&&b.p(f,"u")=="image")l=f;if(l){l.border=0;b.M(l,V)}}T(f,c,d+1)})}f.uc=function(c,b){var a=u-b;Zb(M,a)};f.qb=g;n.call(f);b.Xe(o,b.p(o,"p"));b.le(o,b.p(o,"po"));var L=b.E(o,"thumb",e);if(L){f.ne=b.jb(L);b.V(L)}b.H(o);v=b.jb(gb);b.Q(v,1e3);b.g(o,"click",ab);E(e);f.Zb=l;f.ud=B;f.Sc=o;f.Nb=M=o;b.N(M,v);d.Hb(203,G);d.Hb(28,eb);d.Hb(24,db)}function vc(y,g,p,q){var a=this,n=0,u=0,h,j,f,c,l,t,r,o=C[g];m.call(a,0,0);function v(){b.Kc(L);cc&&l&&o.ud&&b.N(L,o.ud);b.H(L,!l&&o.Zb)}function w(){a.Gc()}function x(b){r=b;a.wb();a.Gc()}a.Gc=function(){var b=a.Lb();if(!B&&!M&&!r&&s==g){if(!b){if(h&&!l){l=e;a.Fd(e);d.n(i.Ce,g,n,u,h,c)}v()}var k,p=i.zd;if(b!=c)if(b==f)k=c;else if(b==j)k=f;else if(!b)k=j;else k=a.Wc();d.n(p,g,b,n,j,f,c);var m=N&&(!E||F);if(b==c)(f!=c&&!(E&12)||m)&&o.re();else(m||b!=f)&&a.xd(k,w)}};a.ye=function(){f==c&&f==a.Lb()&&a.cb(j)};a.qe=function(){A&&A.qb==g&&A.yb();var b=a.Lb();b<c&&d.n(i.zd,g,-b-1,n,j,f,c)};a.Fd=function(a){p&&b.mb(lb,a&&p.Ic.Hf?"":"hidden")};a.uc=function(b,a){if(l&&a>=h){l=k;v();o.rd();A.yb();d.n(i.De,g,n,u,h,c)}d.n(i.Se,g,a,n,j,f,c)};a.fd=function(a){if(a&&!t){t=a;a.Hb($JssorPlayer$.Td,x)}};p&&a.Fc(p);h=a.Dc();a.Fc(q);j=h+q.Dd;f=h+q.Ed;c=a.Dc()}function Kb(a,c,d){b.P(a,c);b.O(a,d)}function Zb(c,b){var a=x>0?x:fb,d=zb*b*(a&1),e=Ab*b*(a>>1&1);Kb(c,d,e)}function Pb(){qb=M;Ib=z.Wc();G=w.Z()}function gc(){Pb();if(B||!F&&E&12){z.wb();d.n(i.Re)}}function ec(f){if(!B&&(F||!(E&12))&&!z.bd()){var d=w.Z(),b=c.ceil(G);if(f&&c.abs(H)>=a.Hd){b=c.ceil(d);b+=jb}if(!(D&1))b=c.min(q-u,c.max(b,0));var e=c.abs(b-d);e=1-c.pow(1-e,5);if(!P&&qb)z.Vd(Ib);else if(d==b){tb.pe();tb.Ec()}else z.Sb(d,b,e*Vb)}}function Hb(a){!b.p(b.qc(a),"nodrag")&&b.ac(a)}function rc(a){Yb(a,1)}function Yb(a,c){a=b.Bd(a);var l=b.qc(a);if(!O&&!b.p(l,"nodrag")&&sc()&&(!c||a.touches.length==1)){B=e;yb=k;R=j;b.g(h,c?"touchmove":"mousemove",Bb);b.ab();P=0;gc();if(!qb)x=0;if(c){var g=a.touches[0];ub=g.clientX;vb=g.clientY}else{var f=b.wd(a);ub=f.x;vb=f.y}H=0;hb=0;jb=0;d.n(i.Qe,t(G),G,a)}}function Bb(d){if(B){d=b.Bd(d);var f;if(d.type!="mousemove"){var l=d.touches[0];f={x:l.clientX,y:l.clientY}}else f=b.wd(d);if(f){var j=f.x-ub,k=f.y-vb;if(c.floor(G)!=G)x=x||fb&O;if((j||k)&&!x){if(O==3)if(c.abs(k)>c.abs(j))x=2;else x=1;else x=O;if(ob&&x==1&&c.abs(k)-c.abs(j)>3)yb=e}if(x){var a=k,i=Ab;if(x==1){a=j;i=zb}if(!(D&1)){if(a>0){var g=i*s,h=a-g;if(h>0)a=g+c.sqrt(h)*5}if(a<0){var g=i*(q-u-s),h=-a-g;if(h>0)a=-g-c.sqrt(h)*5}}if(H-hb<-2)jb=0;else if(H-hb>2)jb=-1;hb=H;H=a;sb=G-H/i/(Y||1);if(H&&x&&!yb){b.ac(d);if(!M)z.Ue(sb);else z.Te(sb)}}}}}function bb(){qc();if(B){B=k;b.ab();b.T(h,"mousemove",Bb);b.T(h,"touchmove",Bb);P=H;z.wb();var a=w.Z();d.n(i.Pe,t(a),a,t(G),G);E&12&&Pb();ec(e)}}function jc(c){if(P){b.bf(c);var a=b.qc(c);while(a&&v!==a){a.tagName=="A"&&b.ac(c);try{a=a.parentNode}catch(d){break}}}}function Jb(a){C[s];s=t(a);tb=C[s];Tb(a);return s}function Dc(a,b){x=0;Jb(a);d.n(i.Oe,t(a),b)}function Tb(a,c){wb=a;b.j(S,function(b){b.Bc(t(a),a,c)})}function sc(){var b=i.Jd||0,a=X;if(ob)a&1&&(a&=1);i.Jd|=a;return O=a&~b}function qc(){if(O){i.Jd&=~X;O=0}}function Xb(){var a=b.rb();b.M(a,V);b.B(a,"absolute");return a}function t(a){return(a%q+q)%q}function kc(b,d){if(d)if(!D){b=c.min(c.max(b+wb,0),q-u);d=k}else if(D&2){b=t(b+wb);d=k}cb(b,a.Ac,d)}function xb(){b.j(S,function(a){a.sc(a.Vb.Jf<=F)})}function hc(){if(!F){F=1;xb();if(!B){E&12&&ec();E&3&&C[s].Ec()}}}function Ec(){if(F){F=0;xb();B||!(E&12)||gc()}}function ic(){V={hb:K,bb:J,k:0,f:0};b.j(T,function(a){b.M(a,V);b.B(a,"absolute");b.mb(a,"hidden");b.V(a)});b.M(gb,V)}function ab(b,a){cb(b,a,e)}function cb(g,f,j){if(Rb&&(!B&&(F||!(E&12))||a.od)){M=e;B=k;z.wb();if(f==l)f=Vb;var d=Cb.Lb(),b=g;if(j){b=d+g;if(g>0)b=c.ceil(b);else b=c.floor(b)}if(D&2)b=t(b);if(!(D&1))b=c.max(0,c.min(b,q-u));var i=(b-d)%q;b=d+i;var h=d==b?0:f*c.abs(i);h=c.min(h,f*u*1.5);z.Sb(d,b,h||1)}}d.Me=cb;d.yd=function(){if(!N){N=e;C[s]&&C[s].Ec()}};d.Ee=function(){return P};function W(){return b.r(y||p)}function nb(){return b.u(y||p)}d.eb=W;d.pb=nb;function Eb(c,d){if(c==l)return b.r(p);if(!y){var a=b.rb(h);b.ad(a,b.ad(p));b.Yb(a,b.Yb(p));b.kb(a,"block");b.B(a,"relative");b.O(a,0);b.P(a,0);b.mb(a,"visible");y=b.rb(h);b.B(y,"absolute");b.O(y,0);b.P(y,0);b.r(y,b.r(p));b.u(y,b.u(p));b.Ld(y,"0 0");b.N(y,a);var g=b.Ub(p);b.N(p,y);b.lb(p,"backgroundImage","");b.j(g,function(c){b.N(b.p(c,"noscale")?p:a,c);b.p(c,"autocenter")&&Lb.push(c)})}Y=c/(d?b.u:b.r)(y);b.Ye(y,Y);var f=d?Y*W():c,e=d?c:Y*nb();b.r(p,f);b.u(p,e);b.j(Lb,function(a){var c=b.Nd(b.p(a,"autocenter"));b.Rd(a,c)})}d.Fe=Eb;d.ed=function(a){var d=c.ceil(t(kb/bc)),b=t(a-s+d);if(b>u){if(a-s>q/2)a-=q;else if(a-s<=-q/2)a+=q}else a=s+b-d;return a};n.call(d);d.ub=p=b.Ab(p);var a=b.G({Fb:0,xe:1,tc:1,rc:0,ic:k,Cb:1,Mb:e,od:e,vd:1,id:3e3,md:1,Ac:500,sf:f.Pc,Hd:20,Xc:0,m:1,vc:0,Ge:1,yc:1,Nc:1},fc);a.Mb=a.Mb&&b.Af();if(a.He!=l)a.id=a.He;if(a.Ie!=l)a.vc=a.Ie;var fb=a.yc&3,tc=(a.yc&4)/-4||1,mb=a.Je,I=b.G({S:r,Mb:a.Mb},a.Df);I.Gb=I.Gb||I.Bf;var Fb=a.Ef,Z=a.Le,eb=a.Ne,Q=!a.Ge,y,v=b.E(p,"slides",Q),gb=b.E(p,"loading",Q)||b.rb(h),Nb=b.E(p,"navigator",Q),dc=b.E(p,"arrowleft",Q),ac=b.E(p,"arrowright",Q),Mb=b.E(p,"thumbnavigator",Q),pc=b.r(v),nc=b.u(v),V,T=[],uc=b.Ub(v);b.j(uc,function(a){if(a.tagName=="DIV"&&!b.p(a,"u"))T.push(a);else b.tb()&&b.Q(a,(b.Q(a)||0)+1)});var s=-1,wb,tb,q=T.length,K=a.te||pc,J=a.oe||nc,Wb=a.Xc,zb=K+Wb,Ab=J+Wb,bc=fb&1?zb:Ab,u=c.min(a.m,q),lb,x,O,yb,S=[],Qb,Sb,Ob,cc,Cc,N,E=a.md,lc=a.id,Vb=a.Ac,rb,ib,kb,Rb=u<q,D=Rb?a.Cb:0,X,P,F=1,M,B,R,ub=0,vb=0,H,hb,jb,Cb,w,U,z,Ub=new oc,Y,Lb=[];if(q){if(a.Mb)Kb=function(a,c,d){b.Jb(a,{xb:c,nb:d})};N=a.ic;d.Vb=fc;ic();b.L(p,"jssor-slider",e);b.Q(v,b.Q(v)||0);b.B(v,"absolute");lb=b.jb(v,e);b.Wb(lb,v);if(mb){cc=mb.Gf;rb=mb.S;ib=u==1&&q>1&&rb&&(!b.Md()||b.Ad()>=8)}kb=ib||u>=q||!(D&1)?0:a.vc;X=(u>1||kb?fb:-1)&a.Nc;var Gb=v,C=[],A,L,Db=b.We(),ob=Db.Ze,G,qb,Ib,sb;Db.Kd&&b.lb(Gb,Db.Kd,([j,"pan-y","pan-x","none"])[X]||"");U=new zc;if(ib)A=new rb(Ub,K,J,mb,ob);b.N(lb,U.Nb);b.mb(v,"hidden");L=Xb();b.lb(L,"backgroundColor","#000");b.Db(L,0);b.Wb(L,Gb.firstChild,Gb);for(var db=0;db<T.length;db++){var wc=T[db],yc=new xc(wc,db);C.push(yc)}b.V(gb);Cb=new Ac;z=new mc(Cb,U);b.g(v,"click",jc,e);b.g(p,"mouseout",b.gc(hc,p));b.g(p,"mouseover",b.gc(Ec,p));if(X){b.g(v,"mousedown",Yb);b.g(v,"touchstart",rc);b.g(v,"dragstart",Hb);b.g(v,"selectstart",Hb);b.g(h,"mouseup",bb);b.g(h,"touchend",bb);b.g(h,"touchcancel",bb);b.g(g,"blur",bb)}E&=ob?10:5;if(Nb&&Fb){Qb=new Fb.S(Nb,Fb,W(),nb());S.push(Qb)}if(Z&&dc&&ac){Z.Cb=D;Z.m=u;Sb=new Z.S(dc,ac,Z,W(),nb());S.push(Sb)}if(Mb&&eb){eb.rc=a.rc;Ob=new eb.S(Mb,eb);S.push(Ob)}b.j(S,function(a){a.jc(q,C,gb);a.Hb(o.pc,kc)});b.lb(p,"visibility","visible");Eb(W());xb();a.tc&&b.g(h,"keydown",function(b){if(b.keyCode==37)ab(-a.tc);else b.keyCode==39&&ab(a.tc)});var pb=a.rc;if(!(D&1))pb=c.max(0,c.min(pb,q-u));z.Sb(pb,pb,0)}};i.ue=21;i.Qe=22;i.Pe=23;i.zf=24;i.uf=25;i.se=26;i.ze=27;i.Re=28;i.yf=202;i.Oe=203;i.Ce=206;i.De=207;i.Se=208;i.zd=209;var o={pc:1};var t=function(a,g,h){var c=this;n.call(c);var r,q,d,f,i;b.r(a);b.u(a);function l(a){c.n(o.pc,a,e)}function p(c){b.H(a,c||!h.Cb&&d==0);b.H(g,c||!h.Cb&&d>=q-h.m);r=c}c.Bc=function(b,a,c){if(c)d=a;else{d=b;p(r)}};c.sc=p;var m;c.jc=function(c){q=c;d=0;if(!m){b.g(a,"click",b.R(j,l,-i));b.g(g,"click",b.R(j,l,i));b.fc(a);b.fc(g);m=e}};c.Vb=f=b.G({Ae:1},h);i=f.Ae;if(f.Cc==k){b.L(a,"noscale",e);b.L(g,"noscale",e)}if(f.Kb){b.L(a,"autocenter",f.Kb);b.L(g,"autocenter",f.Kb)}},q=function(g,B){var h=this,z,p,a,v=[],x,w,d,q,r,u,t,m,s,f,l;n.call(h);g=b.Ab(g);function A(n,f){var g=this,c,m,k;function q(){m.de(p==f)}function i(e){if(e||!s.Ee()){var a=d-f%d,b=s.ed((f+a)/d-1),c=b*d+d-a;h.n(o.pc,c)}}g.qb=f;g.cd=q;k=n.ne||n.Zb||b.rb();g.Nb=c=b.Wd(l,"thumbnailtemplate",k,e);m=b.fc(c);a.oc&1&&b.g(c,"click",b.R(j,i,0));a.oc&2&&b.g(c,"mouseover",b.gc(b.R(j,i,1),c))}h.Bc=function(b,e,f){var a=p;p=b;a!=-1&&v[a].cd();v[b].cd();!f&&s.Me(s.ed(c.floor(e/d)))};h.sc=function(a){b.H(g,a)};var y;h.jc=function(D,C){if(!y){z=D;c.ceil(z/d);p=-1;m=c.min(m,C.length);var h=a.Ib&1,n=u+(u+q)*(d-1)*(1-h),l=t+(t+r)*(d-1)*h,B=n+(n+q)*(m-1)*h,o=l+(l+r)*(m-1)*(1-h);b.B(f,"absolute");b.mb(f,"hidden");a.Kb&1&&b.P(f,(x-B)/2);a.Kb&2&&b.O(f,(w-o)/2);b.r(f,B);b.u(f,o);var j=[];b.j(C,function(l,g){var i=new A(l,g),e=i.Nb,a=c.floor(g/d),k=g%d;b.P(e,(u+q)*k*(1-h));b.O(e,(t+r)*k*h);if(!j[a]){j[a]=b.rb();b.N(f,j[a])}b.N(j[a],e);v.push(i)});var E=b.G({ic:k,od:k,te:n,oe:l,Xc:q*h+r*(1-h),Hd:12,Ac:200,md:1,yc:a.Ib,Nc:a.Ff||a.Cf?0:a.Ib},a);s=new i(g,E);y=e}};h.Vb=a=b.G({lc:0,nc:0,m:1,Ib:1,Kb:3,oc:1},B);x=b.r(g);w=b.u(g);f=b.E(g,"slides",e);l=b.E(f,"prototype");u=b.r(l);t=b.u(l);b.Xb(l,f);d=a.U||1;q=a.lc;r=a.nc;m=a.m;a.Cc==k&&b.L(g,"noscale",e)};function r(e,d,c){var a=this;m.call(a,0,c);a.Yc=b.dd;a.Dd=0;a.Ed=c}jssor_1_slider_init=function(){var h=[{o:1200,c:1,l:{c:d.q,e:d.Rb},e:2},{o:1e3,c:11,K:e,l:{c:d.s,e:d.C},e:2},{o:1200,c:1,a:1,Bb:{c:[.2,.8],a:[.2,.8]},l:{c:d.W,e:d.C,a:d.W},e:2,A:{a:.5}},{o:1e3,c:11,a:1,K:e,l:{c:d.s,e:d.C,a:d.s},e:2,A:{a:.8}},{o:1200,x:.5,m:2,c:1,Y:{vb:15},l:{f:d.q,c:d.q,e:d.C},e:2},{o:1200,x:4,m:2,c:11,K:e,Y:{vb:15},l:{f:d.s,c:d.s,e:d.C},e:2},{o:1200,x:.6,c:1,a:1,Bb:{f:[.2,.8],c:[.2,.8],a:[.2,.8]},l:{f:d.W,c:d.W,e:d.C,a:d.W},e:2,A:{a:.5}},{o:1e3,x:-4,c:11,a:1,K:e,l:{f:d.s,c:d.s,e:d.C,a:d.s},e:2,A:{a:.8}},{o:1200,x:-.6,c:1,a:1,Bb:{f:[.2,.8],c:[.2,.8],a:[.2,.8]},l:{f:d.W,c:d.W,e:d.C,a:d.W},e:2,A:{a:.5}},{o:1e3,x:4,c:11,a:1,K:e,l:{f:d.s,c:d.s,e:d.C,a:d.s},e:2,A:{a:.8}},{o:1200,x:.5,y:.3,m:2,c:1,a:1,Y:{vb:15},l:{f:d.q,k:d.q,c:d.q,e:d.Rb,a:d.q},e:2,A:{a:.7}},{o:1e3,x:.5,y:.3,m:2,c:1,a:1,K:e,Y:{vb:15},l:{f:d.s,k:d.s,c:d.s,e:d.C,a:d.s},e:2,A:{a:.7}},{o:1200,x:-4,y:2,U:2,c:11,a:1,Y:{Zc:28},l:{f:d.q,k:d.q,c:d.q,e:d.Rb,a:d.q},e:2,A:{a:.7}},{o:1200,x:1,y:2,m:2,c:11,a:1,Y:{vb:19},l:{f:d.q,k:d.q,c:d.q,e:d.Rb,a:d.q},e:2,A:{a:.8}}],j={ic:e,Je:{S:s,Gb:h,ie:1},Le:{S:t},Ne:{S:q,U:2,m:6,lc:14,nc:12,Ib:2,vc:156}},f=new i("jssor_1",j);function a(){var b=f.ub.parentNode.clientWidth;if(b){b=c.min(b,960);b=c.max(b,300);f.Fe(b)}else g.setTimeout(a,30)}a();b.g(g,"load",a);b.g(g,"resize",a);b.g(g,"orientationchange",a)}})(window,document,Math,null,true,false)
+		</script>
+		<style>
+		.jssora05l,.jssora05r{
+			display:block;
+			position:absolute;
+			width:40px;
+			height:40px;
+			cursor:pointer;
+			background:url('img/a17.png') no-repeat;
+			overflow:hidden
+		}
+		.jssora05l{
+			background-position:-10px -40px
+		}
+		.jssora05r{
+			background-position:-70px -40px
+		}
+		.jssora05l:hover{
+			background-position:-130px -40px
+		}
+		.jssora05r:hover{
+			background-position:-190px -40px
+		}
+		.jssora05l.jssora05ldn{
+			background-position:-250px -40px
+		}
+		.jssora05r.jssora05rdn{
+			background-position:-310px -40px
+		}
+		.jssora05l.jssora05lds{
+			background-position:-10px -40px;
+			opacity:.3;
+			pointer-events:none
+		}
+		.jssora05r.jssora05rds{
+			background-position:-70px -40px;
+			opacity:.3;
+			pointer-events:none
+		}
+		.jssort01-99-66 .p{
+			position:absolute;
+			top:0;
+			left:0;
+			width:99px;
+			height:66px
+		}
+		.jssort01-99-66 .t{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			border:none
+		}
+		.jssort01-99-66 .w{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%
+		}
+		.jssort01-99-66 .c{
+			position:absolute;
+			top:0;
+			left:0;
+			width:95px;
+			height:62px;
+			border:#000 2px solid;
+			box-sizing:content-box;
+			background:url('img/t01.png') -800px -800px no-repeat;
+			_background:none
+		}
+		.jssort01-99-66 .pav .c{
+			top:2px;_top:0;
+			left:2px;
+			_left:0;
+			width:95px;
+			height:62px;border:#000 0 solid;
+			_border:#fff 2px solid;
+			background-position:50% 50%
+		}
+		.jssort01-99-66 .p:hover .c{
+			top:0;left:0;
+			width:97px;
+			height:64px;border:#fff 1px solid;
+			background-position:50% 50%
+		}
+		.jssort01-99-66 .p.pdn .c{
+			background-position:50% 50%;
+			width:95px;
+			height:62px;
+			border:#000 2px solid
+		}
+		* html .jssort01-99-66 .c,* html .jssort01-99-66 .pdn .c,* html .jssort01-99-66 .pav .c{
+			width:99px;
+			height:66px
+		}
+
+		.info_card_pic:hover img{display:none;}/*当鼠标移动到对应的卡片上把头像和文字隐藏*/
+		/*.info_card_pic:hover p{display:none;}*/
+
+		</style>
+		<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 960px; height: 480px; overflow: hidden; visibility: hidden; background-color: rgb(35,36,38);">
+			<!-- Loading Screen -->
+			<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+				<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+				<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+			</div>
+			<div id="pic_s" data-u="slides" style="cursor: default; position: relative; top: 0px; left: 330px; width: 620px; height: 480px; overflow: hidden; ">  <!-- background:rgba(230,230,230,1);-->
+				<div class="info_card_pic">
+					<img style="height: 480px; width: 310px;" src="img/1.jpg" />
+					<p style="color:rgb(236,236,236);font-size:130%; overflow:auto; margin:60px;">拍摄于24年元旦</p>
+					<img data-u="thumb" src="img/1.jpg" />
+				</div>
+				<div class="info_card_pic">
+					<img style="height: 480px; width: 310px;" src="img/pugonying.jpeg" />
+					<p style="color:rgb(236,236,236);font-size:130%; overflow:auto; margin:60px;">不以物喜，不以己悲</p>
+					<img data-u="thumb" src="img/pugonying.jpeg" />
+				</div>
+				<div class="info_card_pic">
+					<img style="height: 480px; width: 310px;" src="img/xiaoxrk.jpeg" />
+					<p style="color:rgb(236,236,236);font-size:130%; overflow:auto; margin:60px;">无言的爱</p>
+					<img data-u="thumb" src="img/xiaoxrk.jpeg" />
+				</div>
+				<div class="info_card_pic">
+					<img style="height: 480px; width: 310px;" src="img/feiniao.jpeg" />
+					<p style="color:rgb(236,236,236);font-size:130%; overflow:auto; margin:60px;">像飞鸟一般，自由翱翔</p>
+					<img data-u="thumb" src="img/feiniao.jpeg" />
+				</div>
+				<div class="info_card_pic">
+					<img style="margin-top:45px; height: 390px; width: 620px;"  src="img/1705689014646.jpeg" />
+					<p style="color:rgb(236,236,236);font-size:130%; overflow:auto; margin:60px;">日出光芒</p>
+					<img data-u="thumb" src="img/1705689014646.jpeg" />
+				</div><!---->
+				
+				
+			<!--<a data-u="any" href="http://www.jssor.com" style="display:none">Image Gallery with Vertical Thumbnail</a>-->
+			</div>
+			<!-- Thumbnail Navigator -->
+			<div data-u="thumbnavigator" class="jssort01-99-66" style="position:absolute;left:0px;top:0px;width:330px;height:480px;background:rgba(230,230,230,1);" data-autocenter="2">
+				<!-- Thumbnail Item Skin Begin -->
+				<div data-u="slides" style="cursor: default;">
+					<div data-u="prototype" class="p">
+						<div class="w">
+							<div data-u="thumbnailtemplate" class="t"></div>
+						</div>
+						<div class="c"></div>
+					</div>
+				</div>
+				<!-- Thumbnail Item Skin End -->
+			</div>
+			<!-- Arrow Navigator -->
+			<!--<span data-u="arrowleft" class="jssora05l" style="top:0px;left:248px;width:40px;height:40px;" data-autocenter="2"></span>
+			<span data-u="arrowright" class="jssora05r" style="top:0px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>-->
+		</div>
+		<script type="text/javascript">jssor_1_slider_init();</script>
+		<!-- #endregion Jssor Slider End -->
+	</div>
+	<!-- ----pics---- -->
+	
+	<!-- ----video---- -->
+	<div class="imgDiv" style="height:450px;background-color: rgb(35,36,38); top:1450px;">
+		<!--<video width="60%" height="100%" controls="controls">
+			<object data="movie.mp4">
+				<embed src="//player.bilibili.com/player.html?aid=318152822&bvid=BV1jP411a7g7&cid=1260539484&p=1" width="320" height="240" />
+			</object>
+		</video> -->
+		<iframe width="100%" height="100%"  src="https://player.bilibili.com/player.html?aid=318152822&bvid=BV1jP411a7g7&cid=1260539484&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="false">
+		</iframe>
+	</div>
+	<!-- ----video---- -->
+	
+    <!-- ----my_pic---- -->
+	<div class="imgDiv" style="top:1900px;overflow:auto;margin-top:20px;">
+		<div id="m_pic" class="info_container">
+			
+			 <!--<div class="info_card" style="height:280px; width:180px;"><!-- 一张卡片 -->
+				<!--<div class="zh"><!-- 正面 -->
+					<!--<img id="zhimg" src="./img/1.jpg"/>
+					<!--<div class="info_text">
+						<p></p>
+					</div>-->
+				<!--</div>
+				<div class="fan">
+					<!--<h3>简介</h3>-->
+					<!--<p>拍摄于24年元旦</p>
+				</div>
+			 </div>
+			 <div class="info_card" style="height:280px; width:180px;">
+				<div class="zh">
+					<img id="zhimg" src="./img/pugonying.jpeg"/>
+				</div>
+				<div class="fan">
+					<p>不以物喜，不以己悲</p>
+				</div>
+			 </div>
+			 <div class="info_card" style="height:280px; width:180px;">
+				<div class="zh">
+					<img id="zhimg" src="./img/xiaoxrk.jpeg"/>
+				</div>
+				<div class="fan">
+					<p>无言的爱</p>
+				</div>
+			 </div>
+			 <div class="info_card" style="height:280px; width:180px;">
+				<div class="zh">
+					<img id="zhimg" src="./img/feiniao.jpeg"/>
+				</div>
+				<div class="fan">
+					<p>像飞鸟一般，自由翱翔</p>
+				</div>
+			 </div>-->
+		</div>
+	</div>
+	<!-- ----my_pic---- -->
+
+	
+<script src="highlight.min.js"></script>
+<script src="https://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.typetype.js"></script>
+<script type="text/javascript">
+	function flashTextarea(){
+	  console.log('fl')
+	  //$('.ta').css({'outline':'1px solid rgba(255,255,0,0.7)'})
+	  //setTimeout(function(){
+	  //  $('.ta').css({'outline':'1px solid rgba(255,255,0,0)'})
+	  //},50)
+
+	}
+
+$(function(){
+    $('body').addClass('reveal');
+    //hello();
+	
+	function senMsg(letter){
+		var arr = letter.split('\n\n');
+		var ttfocus = $('#letter-textarea').focus();
+		let newArr = arr.forEach(function(item,index,arr){
+		    ttfocus.typetype(item + "\n\n")
+			//console.log(item)
+		})
+		ttfocus.typetype("\n")
+	}
+	
+	function sendLetter(num, letter, def){
+	    if (def) {
+	        senMsg(letter)
+		}
+		$("#letter" + num).click(function(){
+			$('#letter-textarea').val("");
+			senMsg(letter);
+		})
+		$("#letter"+ num +"_all").click(function(){
+			$('#letter-textarea').val("");
+			$('#letter-textarea').val(letter + "\n\n----end----\n\n\n\n");
+		})
+	}
+	
+	<!--第10封信-->
+	var letter10='生活，\
+	\n\n寂静的，落寞的，孤独的。\
+	\n\n遇未逢时即是遗憾，\
+	\n\n（一个人至少拥有一个梦想，有一个理由去坚强。\
+	\n\n心若没有栖息的地方，到哪里都是在流浪。--三毛） \
+	\n\n如果已有人在爱你，\
+	\n\n你亦心有所属，\
+	\n\n那么我将默默离去，\
+	\n\n不打扰即是祝福。\
+	\n\n顺祝安好，\
+	\n\n真诚的，热烈的。';
+	sendLetter(10, letter10, true);
+	
+	<!--第10封信-->
+	var letter10='生活，\
+	\n\n寂静的，落寞的，孤独的。\
+	\n\n遇未逢时即是遗憾，\
+	\n\n（一个人至少拥有一个梦想，有一个理由去坚强。\
+	\n\n心若没有栖息的地方，到哪里都是在流浪。--三毛） \
+	\n\n如果已有人在爱你，\
+	\n\n你亦心有所属，\
+	\n\n那么我将默默离去，\
+	\n\n不打扰即是祝福。\
+	\n\n顺祝安好，\
+	\n\n真诚的，热烈的。';
+	sendLetter(10, letter10, true);
+	
+	<!--第9封信-->
+	var letter9='如果有一天见不到你了，\
+	\n\n那就祝你早安，午安，晚安，\
+	\n\n祝你幸福，开心，快乐。';
+	sendLetter(9, letter9, false);
+	
+	<!--第8封信-->
+	var letter8='喜欢，原来是这样一种感觉，\
+	\n\n会不自觉的想念你，\
+	\n\n会希望你过得开心，\
+	\n\n也会遗憾自己不够优秀。\
+	\n\n常想人生的意义是什么？幸福是什么？\
+	\n\n如果不能让所爱之人过得幸福开心，\
+	\n\n那么又何谈去说喜欢。\
+	\n\n把真诚与尊敬献给你，\
+	\n\n衷心的祝你度过愉快而又美好的一天。';
+	sendLetter(8, letter8, false);
+	
+	<!--第7封信-->
+	var letter7='好像我们都不曾真正相识，\
+	\n\n没有沟通，没有交流。\
+	\n\n可还是会忍不住的想到你，\
+	\n\n想你在想些什么。\
+	\n\n也想见到你，因为这样就会感到开心，\
+	\n\n只是真正望着你，却读不懂你的内心，\
+	\n\n想要靠近你却怕打扰你，也怕吓到你，\
+	\n\n希望自己不会给你带来困扰。\
+	\n\n因为你，我想让自己变得更好，\
+	\n\n运动、读书，也只是想做这样一个纯粹的人，\
+	\n\n人生万事，我只顺其自然。\
+	\n\n无论如何，还是希望你过得开心，\
+	\n\n开心是人生一种美好的体现，\
+	\n\n开心的时光也总是让人留恋的时光。';
+	sendLetter(7, letter7);
+	
+	<!--第6封信-->
+	var letter6='见不到你，总是有种淡淡的失落，\
+	\n\n见到你，却又害怕靠近你。\
+	\n\n说喜欢吧，又觉得过于官方，\
+	\n\n只是会觉得和你待在一起就很开心，\
+	\n\n即便只是在梦里。\
+	\n\n希望你规律进餐，注意休息。\
+	\n\n顺祝：身体健康，生活愉快。';
+	sendLetter(6, letter6);
+	
+	<!--第5封信-->
+	var letter5='常常一个人发呆，\
+	\n\n于自己，也总是活得太过于理想也过于悲观。\
+	\n\n只是十分清楚现实与理想的差距，\
+	\n\n以至于面对你，终究还是会感到自卑。\
+	\n\n不害怕自己一个人去面对生活的柴米油盐，\
+	\n\n害怕的是要你和我一起面对。\
+	\n\n无论如何，生活还是需要一点诗意，\
+	\n\n读书学习、运动锻炼、音乐电影，\
+	\n\n于我，于生活，也总是不可或缺。';
+	sendLetter(5, letter5);
+	
+	<!--第4封信-->
+	var letter4='曾在黑暗的生活中摸索前进，\
+	\n\n遇见你就像生命照进了光。\
+	\n\n“让我偷偷看你，在你回眸的微风里，让我偷偷看你，在你离去的背影里。”\
+	\n\n--赵雷~让我偷偷看你';
+	sendLetter(4, letter4);
+	
+	<!--第1封信-->
+	var letter1='您好，我是符金辉，您唱歌好好听欸......\
+	\n\n冒昧打搅了，烦请原谅！\
+	\n\n谢谢你的帮忙，\
+	\n\n很高兴认识你！cy。';
+	sendLetter(1, letter1);
+	
+	<!--第2封信-->
+	var letter2='见到你很开心，\
+	\n\n想跟你说说话的，可是由于不善言辞，不太清楚说点啥...\
+	\n\n只能用这种方式给您留信了，\
+	\n\n希望你可以看到。\
+	\n\n顺祝：每天过得开心。';
+	sendLetter(2, letter2);
+	
+	<!--第3封信-->
+	var letter3 = '今日天气：晴，气温25℃。宜多喝水，忌生气烦闷。\
+	\n\n当你在某一个瞬间想起这个地方，\
+	\n\n或许可以再回来看看，\
+	\n\n看看是不是又给你留信了，\
+	\n\n说了点啥，猜测一下，期待一下。\
+	\n\n期待对生活来说是一种挺奇妙的感觉。\
+	\n\n顺祝：生活愉快，充满活力。';
+	sendLetter(3, letter3);
+  
+  function hello(){
+	  $('.textarea').focus()
+		.typetype("您好，我是符金辉，您唱歌好好听欸......", {
+		  callback: function() {
+			<!--$('body').addClass('reveal')-->
+		  }
+		}).delay(500)
+		.typetype("\n\n冒昧打搅了，烦请原谅！")
+		<!--.fadeTo(400,0.3).delay(1000).queue(function(){$('#secondhalf').fadeIn(1000);$('textarea').dequeue()}).delay(4000).fadeTo(400,1.0).delay(1000)
+		.typetype("\n\n谢谢你的帮忙，")
+		.typetype("\n\n很高兴认识你！cy。",{
+		  callback: function() {
+			<!--$('body').addClass('reveal')-->
+		  },
+		  keypress:flashTextarea,
+		  t:60,
+		  e:0
+		})
+  }
+	
+})
+
+</script>
+
+<!--music-->
+<div id="QPlayer">
+<div id="pContent">
+
+	<div id="player">
+		<span class="cover"></span>
+		<div class="ctrl">
+			<div class="musicTag marquee">
+				<strong>Title</strong>
+				 <span> - </span>
+				<span class="artist">Artist</span>
+			</div>
+			<div class="progress">
+				<div class="timer left">0:00</div>
+				<div class="contr">
+					<div class="rewind icon"></div>
+					<div class="playback icon"></div>
+					<div class="fastforward icon"></div>
+				</div>
+				<div class="right">
+					<div class="liebiao icon"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ssBtn" style="background:#000 none repeat scroll 0% 0%">
+	        <div class="adf"></div>
+    </div>
+</div>
+<ol id="playlist"></ol>
+</div>
+
+<script src="./js/jquery.marquee.min.js"></script>
+
+<script>
+	var	playlist = [
+		{title:"起风了",artist:"买辣椒也用券",mp3:"https://m.hifini.com/music/起风了（旧版）.m4a",cover:"http://p2.music.126.net/c0nzSObvxF_DftayAJjXsw==/109951162864860506.jpg?param=130y130",},
+		{title:"安和桥",artist:"宋冬野",mp3:"https://m804.music.126.net/20240202003548/03f2269be1b71a9d40c54666b013461c/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096566705/d810/fced/f2bb/b07241ed1fac0c1cf4f800b824bc798a.mp3?_authSecret=0000018d656fe69418ea0aaba3830fb6",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"One Last Kiss",artist:"宇多田ヒカル",mp3:"https://api.liumingye.cn/m/api/link?id=b3f634HzOLrfMF9SfoAs-ZADNQkUBlsjQyjUsKqMGja13S2z0Phw&quality=128&_t=1706803917479&token=20230327.a9ee6471926db1c1bece103826fa7e66",cover:"https://p1.music.126.net/iBApSj7JHCeFdO0W52EpZw==/109951165770552597.jpg?param=130y130",},
+		{title:"冷雨夜",artist:"Beyond",mp3:"https://m804.music.126.net/20240202003812/e120d1e010496d0b7f75222490b4f70d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32366012653/b2cd/56f0/54b5/3c777951e3aaea50db17978fc45ef6f4.mp3?_authSecret=0000018d6572178b1ede0aaba394f900",cover:"https://p1.music.126.net/25Um9AXuyzx2CK7t_h2WTA==/53876069773286.jpg?param=130y130",},
+		{title:"执迷不悟",artist:"王菲",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzI3NjYzODY0Nl8yMjQ3NDg1ODQ1",cover:"https://i.biliimg.com/bfs/im/60cfc166aacf16f16265a663ed4111ceb6568f3a.png@70w_70h_1c.webp",},
+		{title:"无赖",artist:"郑中基",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzI3NjYzODY0Nl8yMjQ3NDg1MTk1",cover:"	https://i.biliimg.com/bfs/im/3771fed2d84bbe5dee0c56d8fc6a3f11d16a757d.jpg@70w_70h_1c.webp",},
+		{title:"习惯失恋",artist:"容祖儿",mp3:"https://api.liumingye.cn/m/api/link?id=d3f636iePH3nJMVUD1wHpHjvjf7c36LlnQ4XyXprbckwMg36ZcvGm&quality=128&_t=1706803815472&token=20230327.8fe949477a743b482869270bd1706861",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000003l02MY0vw8vs.jpg",},
+		{title:"活着viva(女版)",artist:"应嘉俐",mp3:"https://api.liumingye.cn/m/api/link?id=b3f634HzOLrfMF9SfoFZoZlfJR0QElpyEyDZxLaUFi6xxTGH1NRI&quality=128&_t=1706804689847&token=20230327.3585105bc8ed3b66324d4dff44641211",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000khOzC0Qhtto.jpg",},
+		{title:"野孩子",artist:"杨千嬅",mp3:"https://api.liumingye.cn/m/api/link?id=d3f636iePH3nJMVUD1wfoQjKyeLJi7b1jT9byWszZe0MPgno&quality=128&_t=1706805025063&token=20230327.d1ef3757558850c4e89c0eaa08295f9b",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001mImhQ4doM89.jpg",},
+		{title:"稀客",artist:"杨千嬅",mp3:"https://api.liumingye.cn/m/api/link?id=m3f63OtUGNZoMDio1KvYG6T84ksjKcPksLXuh1VA7dWSL0qjZFeLha7Qr2x7Be5k&quality=128&_t=1706804993351&token=20230327.e35d85b015d7384cad9d094aea5a4b5a",cover:"https://p2.music.126.net/8w4C39C2OY2fRANvkSXo9Q==/109951163270254519.jpg?param=130y130",},
+		{title:"黑夜中漫舞",artist:"陈奕迅",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzIxMzExNDQwMl8xMDAwMDI2MjA=",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000004S8YQr3UmEbG.jpg",},
+		{title:"在路上",artist:"康小景",mp3:"./music/康小景在路上.ogg",cover:"https://y.qq.com/music/photo_new/T002R300x300M000002pzOKB0MXSDC_1.jpg?max_age=2592000",},
+	    {title:"董小姐",artist:"宋冬野",mp3:"https://api.liumingye.cn/m/api/link?id=d3f636iePH3nJMVUD1wW8GTPhfbZh6ehpFdLyW8PYfUMPjH2Xeg&quality=128&_t=1706805136616&token=20230327.9239512a73966b406c21ea0b75400755",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"南国之舞",artist:"梁翘柏",mp3:"https://api.liumingye.cn/m/api/link?id=m3f63OtUGNZoMDio1Kv5Vvz84wZucIvx4fin12VE7dWSL0qjZFeLha7oq0RrPcZs&quality=128&_t=1706805184479&token=20230327.a45ea04c8336b0ecd6c06ebe81898a8c",cover:"https://p2.music.126.net/lHwwVluAutDy0FmpaslYiw==/5905476953005960.jpg?param=130y130",},
+	    {title:"弥敦道",artist:"洪卓立",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzI3NjYzODY0Nl8yMjQ3NDg4Mjkz",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000000aMFTq0Ejfqb.jpg",},
+	    {title:"不必在乎我是谁",artist:"梁静茹",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzIxMzExNDQwMl8xMDAwMDg2MDE=",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M0000028Pdb00tG9aA.jpg",},
+	    
+	];
+  var isRotate = true;
+  var autoplay = false;
+  // {title:"",artist:"",mp3:"https://www.hifini.com/",cover:"",},
+</script>
+<script src="./js/player.js"></script>
+<script>
+
+function bgChange(){
+	var lis= $('.lib');
+	for(var i=0; i<lis.length; i+=2){
+	    lis[i].style.background = 'rgba(246, 246, 246, 0.7)';
+    }
+}
+window.onload = bgChange;
+</script>
+<!--music-->
+
+<script>
+var	sxlist = [
+	{title:"难以到达的地方",content:"生活啊！多么的丰富多彩，\n饱含了人间的酸甜苦辣咸。\n我所向往的生活，\n那是一片金黄的麦田，\n那是一片翠绿的草地，\n那是一片湛蓝的天空。\n\n我有一个小房子，\n他就在那棵大榕树下。\n我有一个种满了花儿的小院子，\n我还有一只猫、一匹马儿。\n当夜晚到来，\n我抱着我的小猫，\n坐在小屋门前、大榕树底下，\n看见了那满天闪烁的繁星。\n\n我做了一个梦，\n梦见我骑着我的马儿在空旷的草原上狂奔，\n最后，我们在一条小溪边停了下来。\n马儿喝着水，\n我吹着迎面而来的徐徐清风，\n无比的快乐着。\n\n有一天，我那小院子里的花儿开了，\n它们就像一张张小脸在向着我微笑，\n我也无比幸福的笑了。\n我们就是这世间最美好的事物，\n像太阳的光――热烈，\n像月亮的光――皎洁，\n像星星的光――璀璨。\n我想这世间万物都已藏进了我的眸间。",},
+	{title:"孤独之旅",content:"当有一天我背上我的行囊，\n离开了那生我养我的土地，\n这并不是我不热爱那家乡，\n而是我要去把那离家出走的灵魂找回。\n当有一天你发现我对那生活不在有所向往，\n这只是我在自我疗伤。\n\n如果生命的尽头没有我所追求的希望，\n那我是否还可以回头观望？\n美好的希望，\n总在那暴风骤雨的彩虹之上，\n所有的展望也都只不过是令自己遍体鳞伤。\n但我清楚的知道，\n就是最后满是失望，\n我也会无怨无悔、无惧无畏的向着那前方。\n\n生活的历练为我锻造铠甲，\n命运的苦难助我积极向上，\n我已重寻那力量之源，\n让我的精神领着我走向远方。\n我的身影开始变得高大，\n我也慢慢变得沧桑。",},
+	{title:"故事",content:"可惜我并不勇敢，\n不然你和我的故事早已写满了厚厚的一沓笔记。\n如果能再给我一个重新开始的机会，\n我又会怎么做？\n\n我只是做了一个长长的梦，\n我一直都没有醒过来。\n等我打破了这幻境，\n我将会带着你离开。\n如果你问我要往哪里去，\n我会告诉你：\n去往那鲜花盛开、最接近理想的地方。\n\n当我们踏上了岁月这一趟列车，\n青春的站点会匆匆驶过，\n在时间的这条路上一直漂泊，\n哪里才能停歇，哪里才是我们的故乡，哪里才会是我们的最终归宿？\n我想，这一切都已经不再重要。\n因为，有你的地方也就是我最快乐的地方。\n\n我们就像结伴而行的一对候鸟，\n在冬天到来之前飞往我们的南方。\n为什么会迷失了方向？\n只因这一路上的风景太过于美丽。\n就让黎明的曙光为我们指引方向，\n冲破那黑暗的束缚，\n向着那温暖的地方。",},
+	{title:"周日",content:"贱卖时间，\n生命，只剩下这一个周日，\n生活，寂静的，落寞的，孤独的。\n谁将在这个周日死去，\n谁会沉沉的睡去，便不再醒来。",},
+	{title:"分离",content:"在这阴暗的房子里，\n老鼠和蟑螂啃食着我的躯壳，\n窗外的小鸟为我哀鸣，\n地上的蚂蚁为我祷告。\n脱离而出的灵魂注视这一切，\n无力的在空气中消散。",},
+	{title:"回南",content:"墙壁渗出点点水珠，\n恰似捂着被窝的身子被汗水浸透。\n空气中的潮湿，\n让呼吸的肺也弥漫着腐朽湿润的气息。\n寒梅藏冬，\n万物生春，\n难回天，\n天难回。\n回南天回南天，\n燕归来雁归来。",},
+	{title:"黑夜",content:"闭上双眼，\n像关上了生活的灯盏。\n时间停留在这一刻，\n像死去一般的舒服，\n这可是死亡的感觉？\n不可预知的答案可否用以解答。\n不要轻易的谈起黑夜，\n这是一份珍贵的礼物，\n它静谧的为我盖上了被子，\n让我在微风细雨中昏睡去，\n让我在默默晨曦中苏醒来。",},
+	{title:"星星",content:"在这广阔原野中，\n我奋力狂奔，\n脚步卷起狂风，\n把微风甩在身后。\n我抬起头，\n夜幕降临了，\n星星零零散散的闪着微光，\n点缀这星空，\n也点缀了我的梦，\n这无边黑暗的梦。",},
+	{title:"眼睛",content:"望见那双眼睛，\n深邃而迷人，\n注视万千世界，\n审视滚滚红尘。\n灰尘躲了进去，\n眼睛便眯上了。\n变得模糊，\n揉一揉，\n常错认卿人。\n不经意流下泪滴，\n划过嘴角，\n是甜的，\n是咸的，\n眼泪的味道。",},
+	{title:"时间",content:"和时间对决，\n时刻在进行。\n快点再快点，\n行事匆匆的人儿。\n像流水似的冲淡记忆情感，\n像小偷那般偷走生命，\n却像医生模样治愈苦痛病伤。\n醒来，\n沉思，\n放慢步伐，\n便看到时间在前路行走。\n跟随的身体，\n追随的灵魂，\n缓慢融为一体，\n追求的自由便是时间。",},
+	{title:"烟花",content:"迷人的闪烁，\n带着特有的味道。\n我行走于这黑夜，\n想起你不再慌张。\n看一场烟花，\n像一闪而过的星星，\n带走害怕也带走思念。\n相遇未相识，\n相识未相知，\n相知已成无妄人，\n犹怜犹怜。\n烟花散尽，\n出走后便决定不再回来，\n害怕走进那温柔良夜再出不来。\n茫茫人海再无觅处，\n短短人生曾几何时，\n无悔无悔。",},
+	{title:"等待",content:"矗立原地，\n像中咒语一般，\n静谧的听着心脏在怦怦跳动。\n隐隐雾色中藏匿着的模糊影子，\n是触不可及的灵魂在静默思索。\n风雨飘摇中停泊着的备发客车，\n在夜色旅途中缓缓向前，\n不再等待迟到的客人。\n我静坐其中，\n问自己还在等些什么？\n内心的声音给了我一个回响，\n它说不知道，\n或许是等待夜雨停息，\n或许是等待黎明到来，\n或许是等待一个看不清的未来。\n等，等，等，\n不在其中奋起，\n就在其中消亡。",},
+	{title:"_l",content:"照月明\n山水有情我自知，人间冷暖谁人明。\n他乡何存旧故人，唯有向天看月明。\n\n\n轻风夜思无眠\n夜黑风轻泪打转，孤枕难眠何所思。\n若似无情相思苦，何苦又为相思哭。",},
+	{title:"啥",content:"阿影在医院走廊的长椅上坐了差不多半天了，他现在不知道该干点什么。想着这段日子的所作所为，他不禁的冷笑了一下，但没人发现他微微扬起又恢复平常的嘴角。他拿出了衬衫左上角口袋里的烟盒。打开烟盒，发现已经空了，他想着一个空盒子之前怎么不扔了呢，然后顺手就丟进了旁边的垃圾桶。他还那么年轻，但好像他的记忆愈来愈不好了。之前拿出最后一根香烟时，他想顺手把空盒扔了的，但是他看了看周围发现找不到垃圾桶就把它又塞回了口袋里。他继续想着，现在的他就像这个烟盒一样，什么也不剩，随手一扔就变成一块垃圾。\n\n回到昨晚，他一个人在自己住的那小房间里，躺在自己的床边喝了大半箱的酒，啤的、白的都有。都是从他住的这间房子里找出来的。喝着喝着，他也不知道多少点了，他只是觉得有些困了，然后倒头就睡下了。他没有睡回到床上，而是靠在床沿边就睡着了。\n\n凌晨四点多，他醒了过来，感觉肚子痛的厉害，然后又感觉有点反胃并开始干呕起来。他以为和以前差不多，就是酒喝多了点的缘故。但好像这次并不是那么一回事，他的肚子越来越痛，他的脸也变得扭曲，他倒在地上捂着肚子不断的挣扎着。如果他能够看见自己此刻的脸色，肯定也会被吓一跳的。\n\n他挣扎的爬去找到自己的手机，看了一下时间，04:13。他打开通讯录，找到他从小玩到大的死党阿飞的号码并拨了过去，铃声刚响他就挂了。他强忍着痛爬去翻箱倒柜的找到了一点胃肠宁，吃了两片下去。慢慢的，疼痛缓解了一点，他又倒了两杯水喝下去。不久，疼痛感开始降下去了，但却一直没有消失。他躺回到床沿，一直躺到六点。看着天色渐渐的明亮起来，他拿起自己那件灰色的长衬衫，缓慢的走到了楼下。他向不远处那辆经常早起拉客的摩的师傅打了声招呼并叫他送到了这附近的一家小医院。他想可能这摩的师傅也是这附近的住户吧，因为他在这个时间点起来的时候几乎都能看见他在楼下不远处等着拉客了。\n\n医生帮他检查了一下，倒也没什么大病，只不过是吃坏了肚子加上他喝了那么多酒又睡在床沿边有点受凉而已。医生帮他开了一点药就叫他回去了。他走在通向大厅的走廊里，也不知道该往哪里去。回家？不想。吃东西？也没啥胃口。于是，他就在旁边的长椅上坐了下来。",},
+	{title:"竹笋",content:"竹笋是我的一个朋友，\n她精神最近好像有些恍惚。\n她这个人总是神神叨叨的，\n许多人都无法理解她，\n但在我看来她只是有些中二，\n在我眼里她不单纯是一个活着的人，\n她是一个少有的带着灵魂的行路者。\n她只是比较喜欢活在自己的理想世界而已。\n她以前并不像现在这样，\n我记得她小时候还蛮活泼可爱的。\n她总跟我说因为无知所以快乐，因为愚昧所以难过。我不明白她是什么意思，我只是这样认为：\n她所说的“无知”并不是所谓的无知，而是没有忧虑，不用思考所感到以轻松快乐，一旦认识到自己那愚蠢的脑袋要面对生活那么多复杂的东西就会觉得难过。\n深夜三点零五分，\n竹笋从睡梦中醒来，\n模糊中她听见火车哐当哐当声和呜呜呜的鸣笛声，声音渐渐变大，好像正向她驶来，她想也许她该捡好行李启程了。\n但当她彻底清醒过来后她才发现，\n只是离她这破旧房间四五百米远深夜里驶过的几节老式拉货火车。她嘴里哼哼了几声，就继续躺下睡去了。",},
+	{title:"杂思_1",content:"如果生活欺骗了我，\n我会感到无比庆幸，\n因为我还有那一丝值得欺骗的价值。\n如果生活把我欺骗得一无所有，\n那我仍要感到开心，\n因为再无任何可失去，\n剩下的便是获得。",},
+	{title:"杨慎_临江仙",content:"滚滚长江东逝水，浪花淘尽英雄。\n是非成败转头空。\n青山依旧在，几度夕阳红。\n\n白发渔樵江渚上，惯看秋月春风。\n一壶浊酒喜相逢。\n古今多少事，都付笑谈中。",},
+	
+	
+];
+
+//{title:"故事",content:"",},
+
+function catSxContent(itemIndex){
+    var item = sxlist[itemIndex];
+	//console.log("a-click");
+	//console.log(item);
+	$('#sx-textarea').val("");
+	$('#sx-textarea').val(item.title + "\n\n" +item.content);
+}
+
+function sxLoad(){
+	$('#sx-textarea').val("");
+	var lastitem = sxlist[sxlist.length-1];
+	if (lastitem != null && lastitem != "undefined"){
+	    $('#sx-textarea').val(lastitem.title + "\n\n" +lastitem.content);
+	}
+
+	for (var i = 0; i < sxlist.length; i++){
+		var item = sxlist[i];
+		$('#suixielist').append('</br><a id="sx'+(i+1)+'" onclick="catSxContent('+i+')" style="display: block; margin-left:30px;">'+item.title+'</a></br>');
+		/*$("#sx" + i).click(function(item){
+		    console.log("a-click");
+			console.log(item.content);
+			$('#sx-textarea').val("");
+			$('#sx-textarea').val(item.content);
+		})*/
+	}
+}
+
+window.onload = sxLoad;
+</script>
+
+
+<!--m_pic-->
+<script>
+function mPicLoad(){
+	var	mPicList = [
+		//{title:"",src:"./img/1.jpg",content:"拍摄于24年元旦",},
+		//{title:"",src:"./img/pugonying.jpeg",content:"不以物喜，不以己悲",},
+		//{title:"",src:"./img/xiaoxrk.jpeg",content:"无言的爱",},
+		//{title:"",src:"./img/feiniao.jpeg",content:"像飞鸟一般，自由翱翔",},
+		{title:"",src:"./img/pics/mingchaonaxieshi.jpg",content:"书：《明朝那些事》；作者：当年明月。\n临江仙·梦后楼台高锁 晏几道_宋\n梦后楼台高锁，酒醒帘幕低垂。去年春恨却来时。落花人独立，微雨燕双飞。\n记得小苹初见，两重心字罗衣。琵琶弦上说相思。当时明月在，曾照彩云归。",},
+		{title:"",src:"./img/pics/24shi.jpg",content:"书：《二十四史》；以铜为鉴,可以正衣冠,以人为鉴,可以知得失,以史为鉴,可以知兴替。",},
+		{title:"",src:"./img/pics/modaihuangdi.webp",content:"电影：《末代皇帝 The Last Emperor‎ (1987)》；导演: 贝纳尔多·贝托鲁奇；编剧: 贝纳尔多·贝托鲁奇 / 马克·派普罗。",},
+		{title:"",src:"./img/pics/jibuli.webp",content:"吉卜力系列；吉卜力工作室；宫崎骏；千与千寻、天空之城、红猪、风之谷、幽灵公主、悬崖上的金鱼姬、哈尔的移动城堡、辉夜姬物语、魔女宅急便、猫的报恩......",},
+		{title:"",src:"./img/pics/houxiaoxian.webp",content:"侯孝贤；杨德昌系列；恋恋风尘、童年往事、悲情城市、东东的假期......",},
+		{title:"",src:"./img/pics/wangjiawei.webp",content:"王家卫系列；旺角卡门、阿飞正传、重庆森林、东邪西毒、春光乍泄、花样年华、堕落天使、2046......",},
+		{title:"",src:"./img/pics/xinshijifuyinzhanshi.webp",content:"动画：《新世纪福音战士 新世紀エヴァンゲリオン》；人类补完计划",},
+		{title:"",src:"./img/pics/jinjidejuren.webp",content:"动画：《进击的巨人進撃の巨人》；",},
+		{title:"",src:"./img/pics/conglingkaishideyishijiesshenghuo.webp",content:"动画：《Re：从零开始的异世界生活》；艾米莉亚-486",},
+		{title:"",src:"./img/pics/longzhu.webp",content:"动画：《七龙珠 ドラゴンボール》；狗空，悟天克斯",},
+		{title:"",src:"./img/pics/huoyingrenzhe.webp",content:"动画：《火影忍者NARUTO -ナルト》。民工三大漫(死神、火影王、海贼王)之一。",},
+		{title:"",src:"./img/pics/ruikehemodi.webp",content:"动画：《Rick and Morty瑞克和莫蒂》；导演: 贾斯汀·罗兰；编剧: 贾斯汀·罗兰 / 丹·哈萌。",},
+		{title:"",src:"./img/pics/yijiazhizhu.webp",content:"动画：《King of the Hill一家之主》；yep!yep!yep!",},
+		{title:"",src:"./img/pics/qinghuida1988.webp",content:"剧：《请回答1988》；成宝拉。",},
+		{title:"",src:"./img/pics/dongjingaiqinggushi.webp",content:"剧：《东京爱情故事》；只要有爱，什么困难都是可以被解决的--赤名莉香。",},
+		{title:"",src:"./img/pics/halibote.webp",content:"电影：《Harry Potter哈利波特》系列；铁三角哈利、罗恩和赫敏",},
+		{title:"",src:"./img/pics/hanniba.webp",content:"剧：《Hannibal汉尼拔》；根据著名畅销小说《红龙》（Red Dragon）和同名电影改编",},
+		{title:"",src:"./img/pics/laoyouji.webp",content:"剧：《Friends老友记》；美国全国广播公司出品的系列情景喜剧，由大卫·克莱恩、玛尔塔·考夫曼担任主创，凯文·布赖特 、Gary Halvorson、迈克尔·莱拜克等执导 [8]，詹妮弗·安妮斯顿、大卫·修蒙、柯特妮·考克斯、丽莎·库卓、马特·勒布朗和马修·派瑞主演",},
+		{title:"",src:"./img/pics/quanlideyouxi.webp",content:"剧：《Game of Thrones权利的游戏》；美国HBO电视网制作推出的一部中世纪史诗奇幻题材的电视剧。该剧改编自美国作家乔治·R·R·马丁的奇幻小说《冰与火之歌》系列",},
+		{title:"",src:"./img/pics/heijing.webp",content:"剧：《Black Mirror黑镜》；英国迷你剧，以极端的黑色幽默讽刺和探讨了科技对人类生活产生的影响",},
+		
+	];
+	for (var i = 0; i < mPicList.length; i++){
+		var item = mPicList[i];
+		$('#m_pic').append('<div class="info_card" style="height:280px; width:180px;"><div class="zh"><img id="zhimg" src="'+item.src+'"/></div><div class="fan"><p>'+item.content+'</p></div></div>');
+	}
+}
+</script>
+<!--m_pic-->
+
+
+<!--m_pic-->
+<script>
+function picsLoad(){
+	var	picsList = [
+		{title:"",vertical:1,src:"./img/1.jpg",content:"拍摄于24年元旦",},
+		{title:"",vertical:1,src:"./img/pugonying.jpeg",content:"不以物喜，不以己悲",},
+		{title:"",vertical:1,src:"./img/xiaoxrk.jpeg",content:"无言的爱",},
+		{title:"",vertical:1,src:"./img/feiniao.jpeg",content:"像飞鸟一般，自由翱翔",},
+		{title:"",vertical:0,src:"./img/1705689014646.jpeg",content:"日出的光芒",},
+		
+	];
+	for (var i = 0; i < picsList.length; i++){
+		var item = picsList[i];
+		if (item.vertical){
+			$('#pic_s').append('<div ><img style="height: 480px; width: 310px;"  src="'+item.src+'" /><img data-u="thumb" src="'+item.src+'" /></div>');
+		}else{
+			$('#pic_s').append('<div ><img style="margin-top:45px; height: 390px; width: 620px;"  src="'+item.src+'" /><img data-u="thumb" src="'+item.src+'" /></div>');
+		}
+	}
+}
+</script>
+<!--m_pic-->
+
+<script>
+function Load(){
+	bgChange();
+	sxLoad();
+	//picsLoad();
+	mPicLoad();
+}
+window.onload = Load;
+</script>
+
+
+
+</body>
+</html>
+
