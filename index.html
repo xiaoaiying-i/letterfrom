@@ -290,7 +290,7 @@ div::-webkit-scrollbar {
 	<!-- ----header---- -->
 
 	<div class="ta">
-		<textarea id="letter-textarea" spellcheck="false" class="textarea" style="resize:none;"></textarea>
+		<textarea id="letter-textarea" spellcheck="false" class="textarea" style="resize:none;" readonly ></textarea>
 		<textarea id="letter-textarea" style="resize:none;" id="usage" title="Just 578 bytes gzipped!" readonly spellcheck='off' wrap='off'>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" type="text/javascript">&lt;/script&gt;
 		&lt;script src="https://iamdanfox.github.io/typetype/jquery.typetype.min.js" type="text/javascript"&gt;&lt;/script&gt;</textarea>
 	</div>
@@ -504,9 +504,23 @@ div::-webkit-scrollbar {
 	</div>
 	<!-- ----video---- -->
 	
-    <!-- ----my_pic---- -->
-	<div class="imgDiv" style="top:1910px;overflow:auto;margin-top:20px;">
+	<!-- ----my_pic---- -->
+	<div class="imgDiv" style="height:1700px; top:1910px;overflow:auto;margin-top:20px;">
 		<div id="m_pic" class="info_container"></div>
+	</div>
+	<!-- ----my_pic---- -->
+	
+	<!-- ----留言板---- -->
+	<div class="imgDiv" style="top:3630px;overflow:auto;margin-top:20px;">
+		<div class="info_container" style="height:230px">
+			<h2>留言</h2>
+			<ol id="messageList">
+			</ol>
+			<form id="postMessage">
+				<input type="text" name="content">
+				<input type="submit" value="提交">
+			</form>
+		</div>
 	</div>
 	<!-- ----my_pic---- -->
 
@@ -523,6 +537,7 @@ $(function(){
 	$('body').addClass('reveal');
 	var	messageList = [
 		{num:"1", title:"20240414_1",time:"20240414", def:true, content:"想找你却找不到一个合适理由。\n\n也许，喜欢一个人本身并不需要理由。"},
+		{num:"2", title:"20240416_1",time:"20240417", def:false, content:"勇敢一点...\n\n嗯......\n\n以及睡个好觉，晚安啦！"},
 	];
 	function senMsg(letter){
 		var arr = letter.split('\n\n');
@@ -596,8 +611,10 @@ $(function(){
 
 <script>
 	var	playlist = [
-		{title:"起风了",artist:"买辣椒也用券",mp3:"https://m.hifini.com/music/起风了（旧版）.m4a",cover:"http://p2.music.126.net/c0nzSObvxF_DftayAJjXsw==/109951162864860506.jpg?param=130y130",},
-		{title:"安和桥",artist:"宋冬野",mp3:"https://m804.music.126.net/20240202003548/03f2269be1b71a9d40c54666b013461c/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096566705/d810/fced/f2bb/b07241ed1fac0c1cf4f800b824bc798a.mp3?_authSecret=0000018d656fe69418ea0aaba3830fb6",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"起风了",artist:"买辣椒也用券",mp3:"./music/买辣椒也用券 - 起风了（Cover 高橋優）.mp3",cover:"http://p2.music.126.net/c0nzSObvxF_DftayAJjXsw==/109951162864860506.jpg?param=130y130",},
+		//{title:"起风了",artist:"买辣椒也用券",mp3:"https://m.hifini.com/music/起风了（旧版）.m4a",cover:"http://p2.music.126.net/c0nzSObvxF_DftayAJjXsw==/109951162864860506.jpg?param=130y130",},
+		//{title:"安和桥",artist:"宋冬野",mp3:"https://m804.music.126.net/20240202003548/03f2269be1b71a9d40c54666b013461c/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096566705/d810/fced/f2bb/b07241ed1fac0c1cf4f800b824bc798a.mp3?_authSecret=0000018d656fe69418ea0aaba3830fb6",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
+		{title:"安和桥",artist:"宋冬野",mp3:"./music/宋冬野-安和桥.mp3",cover:"https://y.gtimg.cn/music/photo_new/T002R300x300M000002VeS6r4L5fLZ.jpg",},
 		{title:"One Last Kiss",artist:"宇多田ヒカル",mp3:"https://api.liumingye.cn/m/api/link?id=b3f634HzOLrfMF9SfoAs-ZADNQkUBlsjQyjUsKqMGja13S2z0Phw&quality=128&_t=1706803917479&token=20230327.a9ee6471926db1c1bece103826fa7e66",cover:"https://p1.music.126.net/iBApSj7JHCeFdO0W52EpZw==/109951165770552597.jpg?param=130y130",},
 		{title:"冷雨夜",artist:"Beyond",mp3:"https://m804.music.126.net/20240202003812/e120d1e010496d0b7f75222490b4f70d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32366012653/b2cd/56f0/54b5/3c777951e3aaea50db17978fc45ef6f4.mp3?_authSecret=0000018d6572178b1ede0aaba394f900",cover:"https://p1.music.126.net/25Um9AXuyzx2CK7t_h2WTA==/53876069773286.jpg?param=130y130",},
 		{title:"执迷不悟",artist:"王菲",mp3:"https://res.wx.qq.com/voice/getvoice?mediaid=MzI3NjYzODY0Nl8yMjQ3NDg1ODQ1",cover:"https://i.biliimg.com/bfs/im/60cfc166aacf16f16265a663ed4111ceb6568f3a.png@70w_70h_1c.webp",},
