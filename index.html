@@ -502,10 +502,15 @@ div::-webkit-scrollbar {
 		<iframe width="100%" height="100%"  src="https://player.bilibili.com/player.html?aid=318152822&bvid=BV1jP411a7g7&cid=1260539484&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="false">
 		</iframe>
 	</div>
+	<div class="imgDiv" style="height:20px; top:1910px;">
+		<a style="color:white; text-decoration: none; content: right; float:right;" href='https://space.bilibili.com/250945366'>
+		  to bilibili space @aiyingi
+		</a>
+	</div>
 	<!-- ----video---- -->
 	
 	<!-- ----my_pic---- height:1700px; -->
-	<div class="imgDiv" style="top:1910px;overflow:auto;margin-top:20px;">
+	<div class="imgDiv" style="top:1920px;overflow:auto;margin-top:20px;">
 		<div id="m_pic" class="info_container"></div>
 	</div>
 	<!-- ----my_pic---- -->
@@ -580,6 +585,44 @@ function sxLoad(){
 sxLoad();
 //window.onload = sxLoad;
 </script>
+<!--m_pic-->
+<script>
+function mPicLoad(){
+	var	mPicList = [
+		//{title:"",src:"./img/1.jpg",content:"拍摄于24年元旦",},
+		//{title:"",src:"./img/pugonying.jpeg",content:"不以物喜，不以己悲",},
+		//{title:"",src:"./img/xiaoxrk.jpeg",content:"无言的爱",},
+		//{title:"",src:"./img/feiniao.jpeg",content:"像飞鸟一般，自由翱翔",},
+		{title:"",src:"./img/pics/mingchaonaxieshi.jpg",content:"书：《明朝那些事》；作者：当年明月。\n临江仙·梦后楼台高锁 晏几道_宋\n梦后楼台高锁，酒醒帘幕低垂。去年春恨却来时。落花人独立，微雨燕双飞。\n记得小苹初见，两重心字罗衣。琵琶弦上说相思。当时明月在，曾照彩云归。",},
+		{title:"",src:"./img/pics/24shi.jpg",content:"书：《二十四史》；以铜为鉴,可以正衣冠,以人为鉴,可以知得失,以史为鉴,可以知兴替。",},
+		{title:"",src:"./img/pics/modaihuangdi.webp",content:"电影：《末代皇帝 The Last Emperor‎ (1987)》；导演: 贝纳尔多·贝托鲁奇；编剧: 贝纳尔多·贝托鲁奇 / 马克·派普罗。",},
+		{title:"",src:"./img/pics/jibuli.webp",content:"吉卜力系列；吉卜力工作室；宫崎骏；千与千寻、天空之城、红猪、风之谷、幽灵公主、悬崖上的金鱼姬、哈尔的移动城堡、辉夜姬物语、魔女宅急便、猫的报恩......",},
+		{title:"",src:"./img/pics/houxiaoxian.webp",content:"侯孝贤；杨德昌系列；恋恋风尘、童年往事、悲情城市、东东的假期......",},
+		{title:"",src:"./img/pics/wangjiawei.webp",content:"王家卫系列；旺角卡门、阿飞正传、重庆森林、东邪西毒、春光乍泄、花样年华、堕落天使、2046......",},
+		{title:"",src:"./img/pics/xinshijifuyinzhanshi.webp",content:"动画：《新世纪福音战士 新世紀エヴァンゲリオン》；人类补完计划",},
+		{title:"",src:"./img/pics/jinjidejuren.webp",content:"动画：《进击的巨人進撃の巨人》；",},
+		{title:"",src:"./img/pics/conglingkaishideyishijiesshenghuo.webp",content:"动画：《Re：从零开始的异世界生活》；艾米莉亚-486",},
+		{title:"",src:"./img/pics/longzhu.webp",content:"动画：《七龙珠 ドラゴンボール》；狗空，悟天克斯",},
+		{title:"",src:"./img/pics/huoyingrenzhe.webp",content:"动画：《火影忍者NARUTO -ナルト》。民工三大漫(死神、火影王、海贼王)之一。",},
+		{title:"",src:"./img/pics/ruikehemodi.webp",content:"动画：《Rick and Morty瑞克和莫蒂》；导演: 贾斯汀·罗兰；编剧: 贾斯汀·罗兰 / 丹·哈萌。",},
+		{title:"",src:"./img/pics/yijiazhizhu.webp",content:"动画：《King of the Hill一家之主》；yep!yep!yep!",},
+		{title:"",src:"./img/pics/qinghuida1988.webp",content:"剧：《请回答1988》；成宝拉。",},
+		{title:"",src:"./img/pics/dongjingaiqinggushi.webp",content:"剧：《东京爱情故事》；只要有爱，什么困难都是可以被解决的--赤名莉香。",},
+		{title:"",src:"./img/pics/halibote.webp",content:"电影：《Harry Potter哈利波特》系列；铁三角哈利、罗恩和赫敏",},
+		{title:"",src:"./img/pics/hanniba.webp",content:"剧：《Hannibal汉尼拔》；根据著名畅销小说《红龙》（Red Dragon）和同名电影改编",},
+		{title:"",src:"./img/pics/laoyouji.webp",content:"剧：《Friends老友记》；美国全国广播公司出品的系列情景喜剧，由大卫·克莱恩、玛尔塔·考夫曼担任主创，凯文·布赖特 、Gary Halvorson、迈克尔·莱拜克等执导 [8]，詹妮弗·安妮斯顿、大卫·修蒙、柯特妮·考克斯、丽莎·库卓、马特·勒布朗和马修·派瑞主演",},
+		{title:"",src:"./img/pics/quanlideyouxi.webp",content:"剧：《Game of Thrones权利的游戏》；美国HBO电视网制作推出的一部中世纪史诗奇幻题材的电视剧。该剧改编自美国作家乔治·R·R·马丁的奇幻小说《冰与火之歌》系列",},
+		{title:"",src:"./img/pics/heijing.webp",content:"剧：《Black Mirror黑镜》；英国迷你剧，以极端的黑色幽默讽刺和探讨了科技对人类生活产生的影响",},
+		
+	];
+	for (var i = 0; i < mPicList.length; i++){
+		var item = mPicList[i];
+		$('#m_pic').append('<div class="info_card" style="height:280px; width:180px;"><div class="zh"><img id="zhimg" src="'+item.src+'"/></div><div class="fan"><p>'+item.content+'</p></div></div>');
+	}
+}
+mPicLoad();
+</script>
+<!--m_pic-->
 <script type="text/javascript">
 	function flashTextarea(){
 	  console.log('fl')
@@ -702,45 +745,6 @@ window.onload = bgChange;
 
 <!--m_pic-->
 <script>
-function mPicLoad(){
-	var	mPicList = [
-		//{title:"",src:"./img/1.jpg",content:"拍摄于24年元旦",},
-		//{title:"",src:"./img/pugonying.jpeg",content:"不以物喜，不以己悲",},
-		//{title:"",src:"./img/xiaoxrk.jpeg",content:"无言的爱",},
-		//{title:"",src:"./img/feiniao.jpeg",content:"像飞鸟一般，自由翱翔",},
-		{title:"",src:"./img/pics/mingchaonaxieshi.jpg",content:"书：《明朝那些事》；作者：当年明月。\n临江仙·梦后楼台高锁 晏几道_宋\n梦后楼台高锁，酒醒帘幕低垂。去年春恨却来时。落花人独立，微雨燕双飞。\n记得小苹初见，两重心字罗衣。琵琶弦上说相思。当时明月在，曾照彩云归。",},
-		{title:"",src:"./img/pics/24shi.jpg",content:"书：《二十四史》；以铜为鉴,可以正衣冠,以人为鉴,可以知得失,以史为鉴,可以知兴替。",},
-		{title:"",src:"./img/pics/modaihuangdi.webp",content:"电影：《末代皇帝 The Last Emperor‎ (1987)》；导演: 贝纳尔多·贝托鲁奇；编剧: 贝纳尔多·贝托鲁奇 / 马克·派普罗。",},
-		{title:"",src:"./img/pics/jibuli.webp",content:"吉卜力系列；吉卜力工作室；宫崎骏；千与千寻、天空之城、红猪、风之谷、幽灵公主、悬崖上的金鱼姬、哈尔的移动城堡、辉夜姬物语、魔女宅急便、猫的报恩......",},
-		{title:"",src:"./img/pics/houxiaoxian.webp",content:"侯孝贤；杨德昌系列；恋恋风尘、童年往事、悲情城市、东东的假期......",},
-		{title:"",src:"./img/pics/wangjiawei.webp",content:"王家卫系列；旺角卡门、阿飞正传、重庆森林、东邪西毒、春光乍泄、花样年华、堕落天使、2046......",},
-		{title:"",src:"./img/pics/xinshijifuyinzhanshi.webp",content:"动画：《新世纪福音战士 新世紀エヴァンゲリオン》；人类补完计划",},
-		{title:"",src:"./img/pics/jinjidejuren.webp",content:"动画：《进击的巨人進撃の巨人》；",},
-		{title:"",src:"./img/pics/conglingkaishideyishijiesshenghuo.webp",content:"动画：《Re：从零开始的异世界生活》；艾米莉亚-486",},
-		{title:"",src:"./img/pics/longzhu.webp",content:"动画：《七龙珠 ドラゴンボール》；狗空，悟天克斯",},
-		{title:"",src:"./img/pics/huoyingrenzhe.webp",content:"动画：《火影忍者NARUTO -ナルト》。民工三大漫(死神、火影王、海贼王)之一。",},
-		{title:"",src:"./img/pics/ruikehemodi.webp",content:"动画：《Rick and Morty瑞克和莫蒂》；导演: 贾斯汀·罗兰；编剧: 贾斯汀·罗兰 / 丹·哈萌。",},
-		{title:"",src:"./img/pics/yijiazhizhu.webp",content:"动画：《King of the Hill一家之主》；yep!yep!yep!",},
-		{title:"",src:"./img/pics/qinghuida1988.webp",content:"剧：《请回答1988》；成宝拉。",},
-		{title:"",src:"./img/pics/dongjingaiqinggushi.webp",content:"剧：《东京爱情故事》；只要有爱，什么困难都是可以被解决的--赤名莉香。",},
-		{title:"",src:"./img/pics/halibote.webp",content:"电影：《Harry Potter哈利波特》系列；铁三角哈利、罗恩和赫敏",},
-		{title:"",src:"./img/pics/hanniba.webp",content:"剧：《Hannibal汉尼拔》；根据著名畅销小说《红龙》（Red Dragon）和同名电影改编",},
-		{title:"",src:"./img/pics/laoyouji.webp",content:"剧：《Friends老友记》；美国全国广播公司出品的系列情景喜剧，由大卫·克莱恩、玛尔塔·考夫曼担任主创，凯文·布赖特 、Gary Halvorson、迈克尔·莱拜克等执导 [8]，詹妮弗·安妮斯顿、大卫·修蒙、柯特妮·考克斯、丽莎·库卓、马特·勒布朗和马修·派瑞主演",},
-		{title:"",src:"./img/pics/quanlideyouxi.webp",content:"剧：《Game of Thrones权利的游戏》；美国HBO电视网制作推出的一部中世纪史诗奇幻题材的电视剧。该剧改编自美国作家乔治·R·R·马丁的奇幻小说《冰与火之歌》系列",},
-		{title:"",src:"./img/pics/heijing.webp",content:"剧：《Black Mirror黑镜》；英国迷你剧，以极端的黑色幽默讽刺和探讨了科技对人类生活产生的影响",},
-		
-	];
-	for (var i = 0; i < mPicList.length; i++){
-		var item = mPicList[i];
-		$('#m_pic').append('<div class="info_card" style="height:280px; width:180px;"><div class="zh"><img id="zhimg" src="'+item.src+'"/></div><div class="fan"><p>'+item.content+'</p></div></div>');
-	}
-}
-</script>
-<!--m_pic-->
-
-
-<!--m_pic-->
-<script>
 function picsLoad(){
 	var	picsList = [
 		{title:"",vertical:true,src:"./img/1.jpg",content:"拍摄于24年元旦",},
@@ -775,7 +779,6 @@ function picsLoad(){
 function Load(){
 	bgChange();
 	//picsLoad();
-	mPicLoad();
 }
 window.onload = Load;
 </script>
