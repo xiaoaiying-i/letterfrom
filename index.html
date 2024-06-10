@@ -631,6 +631,56 @@ mPicLoad();
 </script>
 <!--m_pic-->
 
+<!--letter-->
+<script type="text/javascript">
+	function flashTextarea(){
+	  console.log('fl')
+	}
+
+$(function(){
+	$('body').addClass('reveal');
+	var	messageList = [
+		{num:"1", title:"20240414_1",time:"20240414", def:true, content:"想找你却找不到一个合适理由。\n\n也许，喜欢一个人本身并不需要理由。\n\n又或许，喜欢就是理由！"},
+		{num:"2", title:"20240417_1",time:"20240417", def:false, content:"勇敢一点...\n\n嗯......\n\n以及睡个好觉，晚安了。"},
+		{num:"3", title:"关于爱你",time:"20240610", def:true, content:"喜欢，是那么一件纯粹的事，\n\n因为我喜欢你，\n\n所以想要对你好，希望你开心，\n\n而不是因为我喜欢你，\n\n所以你也得喜欢我。\n\n\n爱，是一种克制，\n\n因为爱你，所以不忍对你造成打扰及困扰，\n\n又因为爱你，所以忍不住去打扰你。"},
+		
+	];
+	function senMsg(letter){
+		var arr = letter.split('\n\n');
+		var ttfocus = $('#letter-textarea').focus();
+		let newArr = arr.forEach(function(item,index,arr){
+		    ttfocus.typetype(item + "\n\n")
+		})
+		ttfocus.typetype("\n")
+	}
+	
+	function sendLetter(num, letter, def){
+	    if (def) {
+	        senMsg(letter)
+		}
+		$("#message" + num).click(function(){
+			$('#letter-textarea').val("");
+			senMsg(letter);
+		})
+		$("#message"+ num +"_all").click(function(){
+			$('#letter-textarea').val("");
+			$('#letter-textarea').val(letter + "\n\n----end----\n\n\n\n");
+		})
+	}
+	
+	function sendMessage(){
+		for(var i=0; i<messageList.length; i++){
+			var item = messageList[i];
+			$('#rhs').append('<a id="message'+item.num+'" style="display: block; text-align: center">'+item.title+'</br><a id="message'+item.num+'_all" style="display: block; text-align: center">查看全文</a></a></br>');
+			sendLetter(item.num,item.content, item.def);
+		}
+	    
+	}
+	sendMessage();
+})
+</script>
+<!--letter-->
+
 <!--music-->
 <div id="QPlayer">
 	<div id="pContent">
@@ -698,55 +748,6 @@ window.onload = bgChange;
 <script src="./js/player.js"></script>
 <!--music-->
 
-<!--letter-->
-<script type="text/javascript">
-	function flashTextarea(){
-	  console.log('fl')
-	}
-
-$(function(){
-	$('body').addClass('reveal');
-	var	messageList = [
-		{num:"1", title:"20240414_1",time:"20240414", def:true, content:"想找你却找不到一个合适理由。\n\n也许，喜欢一个人本身并不需要理由。\n\n又或许，喜欢就是理由！"},
-		{num:"2", title:"20240417_1",time:"20240417", def:false, content:"勇敢一点...\n\n嗯......\n\n以及睡个好觉，晚安了。"},
-		{num:"3", title:"关于爱你",time:"20240610", def:true, content:"喜欢，是那么一件纯粹的事，\n\n因为我喜欢你，\n\n所以想要对你好，希望你开心，\n\n而不是因为我喜欢你，\n\n所以你也得喜欢我。\n\n\n爱，是一种克制，\n\n因为爱你，所以不忍对你造成打扰及困扰，\n\n又因为爱你，所以忍不住去打扰你。"},
-		
-	];
-	function senMsg(letter){
-		var arr = letter.split('\n\n');
-		var ttfocus = $('#letter-textarea').focus();
-		let newArr = arr.forEach(function(item,index,arr){
-		    ttfocus.typetype(item + "\n\n")
-		})
-		ttfocus.typetype("\n")
-	}
-	
-	function sendLetter(num, letter, def){
-	    if (def) {
-	        senMsg(letter)
-		}
-		$("#message" + num).click(function(){
-			$('#letter-textarea').val("");
-			senMsg(letter);
-		})
-		$("#message"+ num +"_all").click(function(){
-			$('#letter-textarea').val("");
-			$('#letter-textarea').val(letter + "\n\n----end----\n\n\n\n");
-		})
-	}
-	
-	function sendMessage(){
-		for(var i=0; i<messageList.length; i++){
-			var item = messageList[i];
-			$('#rhs').append('<a id="message'+item.num+'" style="display: block; text-align: center">'+item.title+'</br><a id="message'+item.num+'_all" style="display: block; text-align: center">查看全文</a></a></br>');
-			sendLetter(item.num,item.content, item.def);
-		}
-	    
-	}
-	sendMessage();
-})
-</script>
-<!--letter-->
 
 <!--m_pic
 <script>
